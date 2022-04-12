@@ -1,6 +1,6 @@
 # docker_mapping
 
-Repository of Docker image for mapping tools
+Repository of Docker image for mapping tools (based on Ubuntu 20.04)
 
 # Latest version (2022.04)
 - BWA version 0.7.17
