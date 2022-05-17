@@ -1,4 +1,5 @@
-FROM rnakato/ubuntu
+#FROM rnakato/ubuntu
+FROM rnakato/database:Ensembl106
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -21,12 +22,17 @@ RUN tar xvfj bwa-0.7.17.tar.bz2 \
     && rm /opt/bwa-0.7.17.tar.bz2
 
 # Bowtie1.3.1
-ADD bowtie-1.3.1-linux-x86_64.zip .
+COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
 RUN unzip bowtie-1.3.1-linux-x86_64.zip \
     && rm bowtie-1.3.1-linux-x86_64.zip
 
+# Bowtie1.1.2 (for colorspace data)
+COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+RUN unzip bowtie-1.1.2-linux-x86_64.zip \
+    && rm bowtie-1.1.2-linux-x86_64.zip
+
 # Bowtie2.4.5
-ADD bowtie2-2.4.5-linux-x86_64.zip .
+COPY bowtie2-2.4.5-linux-x86_64.zip bowtie2-2.4.5-linux-x86_64.zip
 RUN unzip bowtie2-2.4.5-linux-x86_64.zip \
     && rm bowtie2-2.4.5-linux-x86_64.zip
 
