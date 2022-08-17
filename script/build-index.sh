@@ -34,7 +34,7 @@ ex(){
     name=$2
     command=$3
     command_version=$4
-    mkdir -p $indexdir/log
+    mkdir -p $odir/log
     log="$odir/log/build-index.$program.$name.log"
     echo $program
     echo "Version:" > $log
@@ -73,7 +73,7 @@ elif test $program = "bowtie" ; then
     command_version="$binary --version"
     ex $program $name "$command" "$command_version"
 elif test $program = "bowtie-cs" ; then
-    binary=/opt/bowtie-1.1.2-linux-x86_64/bowtie-build
+    binary=/opt/bowtie-1.1.2/bowtie-build
     indexdir=$odir/bowtie-indexes
     mkdir -p $indexdir
     command="$binary -C $fa $indexdir/$name-cs"

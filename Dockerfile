@@ -1,4 +1,3 @@
-#FROM rnakato/ubuntu
 FROM rnakato/database:Ensembl106
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
@@ -49,6 +48,8 @@ COPY chromap-0.2.1_x64-linux.tar.bz2 chromap-0.2.1_x64-linux.tar.bz2
 RUN tar xvfj chromap-0.2.1_x64-linux.tar.bz2 \
      && rm chromap-0.2.1_x64-linux.tar.bz2
 
-ENV PATH ${PATH}:/opt:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.4.5-linux-x86_64
+COPY script/build-index.sh scripts/build-index.sh
+
+ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.4.5-linux-x86_64
 
 CMD ["/bin/bash"]
