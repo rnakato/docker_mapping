@@ -2,7 +2,7 @@
 
 Repository of Docker image for mapping tools (based on Ubuntu 20.04)
 
-# Latest version (2022.04)
+# Latest version (2022.10)
 - BWA version 0.7.17
 - Bowtie version 1.3.1
 - Bowtie2 version 2.4.5

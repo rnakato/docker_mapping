@@ -1,8 +1,9 @@
-FROM rnakato/database:Ensembl106
+FROM rnakato/database:2022.09
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /opt
+USER root
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
