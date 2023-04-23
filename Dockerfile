@@ -1,4 +1,4 @@
-FROM rnakato/database:2022.09
+FROM rnakato/database:2023.04
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -12,14 +12,22 @@ RUN apt-get update \
     libncurses-dev \
     pigz \
     unzip \
-    && apt-get clean
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists
 
 # BWA 0.7.17
 COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
 RUN tar xvfj bwa-0.7.17.tar.bz2 \
     && cd bwa-0.7.17 \
+    # const uint8_t rle_auxtab[8]; を削除: see https://github.com/lh3/bwa/issues/275
+    && sed -i '33d' rle.h \
     && make \
     && rm /opt/bwa-0.7.17.tar.bz2
+
+# BWA-MEM2
+COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2 \
+    && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
 
 # Bowtie1.3.1
 COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
@@ -36,21 +44,13 @@ COPY bowtie2-2.4.5-linux-x86_64.zip bowtie2-2.4.5-linux-x86_64.zip
 RUN unzip bowtie2-2.4.5-linux-x86_64.zip \
     && rm bowtie2-2.4.5-linux-x86_64.zip
 
-# Samtools 1.15.1
-COPY samtools-1.15.1.tar.bz2 samtools-1.15.1.tar.bz2
-RUN tar xvfj samtools-1.15.1.tar.bz2 \
-    && cd samtools-1.15.1 \
-    && ./configure \
-    && make && make install \
-    && rm /opt/samtools-1.15.1.tar.bz2
-
-# Chromap 0.2.1
-COPY chromap-0.2.1_x64-linux.tar.bz2 chromap-0.2.1_x64-linux.tar.bz2
-RUN tar xvfj chromap-0.2.1_x64-linux.tar.bz2 \
-     && rm chromap-0.2.1_x64-linux.tar.bz2
+# Chromap 0.2.4
+COPY chromap-0.2.4_x64-linux.tar.bz2 chromap-0.2.4_x64-linux.tar.bz2
+RUN tar xvfj chromap-0.2.4_x64-linux.tar.bz2 \
+     && rm chromap-0.2.4_x64-linux.tar.bz2
 
 COPY script/build-index.sh scripts/build-index.sh
 
-ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.4.5-linux-x86_64
+ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.4.5-linux-x86_64:/opt/bwa-mem2-2.0pre2_x64-linux
 
 CMD ["/bin/bash"]
