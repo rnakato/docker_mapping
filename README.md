@@ -8,8 +8,8 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 - Bowtie2 version 2.4.5
 - chromap version 0.2.4
 - SAMtools version 1.17
-- SRAtoolkit version 3.0.2
 - BEDtools version 2.30.0
+- SRAtoolkit version 3.0.2
 
 ## Run
 
