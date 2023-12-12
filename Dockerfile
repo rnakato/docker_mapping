@@ -1,4 +1,4 @@
-FROM rnakato/database:2023.10
+FROM rnakato/database:2023.11
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
