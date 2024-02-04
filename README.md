@@ -17,7 +17,6 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
     - Rstudio Desktop
     - Rstudio Server
 
-
 - BWA v0.7.17
 - Bowtie v1.3.1
 - Bowtie2 v2.5.3
