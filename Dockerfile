@@ -1,4 +1,4 @@
-FROM rnakato/database:2024.01
+FROM rnakato/database:2024.02
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -39,18 +39,20 @@ COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
 RUN unzip bowtie-1.1.2-linux-x86_64.zip \
     && rm bowtie-1.1.2-linux-x86_64.zip
 
-# Bowtie2.4.5
-COPY bowtie2-2.4.5-linux-x86_64.zip bowtie2-2.4.5-linux-x86_64.zip
-RUN unzip bowtie2-2.4.5-linux-x86_64.zip \
-    && rm bowtie2-2.4.5-linux-x86_64.zip
+# Bowtie2.5.3
+COPY bowtie2-2.5.3-linux-x86_64.zip bowtie2-2.5.3-linux-x86_64.zip
+RUN unzip bowtie2-2.5.3-linux-x86_64.zip \
+    && rm bowtie2-2.5.3-linux-x86_64.zip
 
-# Chromap 0.2.4
-COPY chromap-0.2.4_x64-linux.tar.bz2 chromap-0.2.4_x64-linux.tar.bz2
-RUN tar xvfj chromap-0.2.4_x64-linux.tar.bz2 \
-     && rm chromap-0.2.4_x64-linux.tar.bz2
+# Chromap 0.2.5
+COPY chromap-0.2.5_x64-linux.tar.bz2 chromap-0.2.5_x64-linux.tar.bz2
+RUN tar xvfj chromap-0.2.5_x64-linux.tar.bz2 \
+     && rm chromap-0.2.5_x64-linux.tar.bz2
 
 COPY script/build-index.sh scripts/build-index.sh
 
-ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.4.5-linux-x86_64:/opt/bwa-mem2-2.0pre2_x64-linux
+ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.5.3-linux-x86_64:/opt/bwa-mem2-2.0pre2_x64-linux
 
+USER ubuntu
+WORKDIR /home/ubuntu
 CMD ["/bin/bash"]
