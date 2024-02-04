@@ -4,10 +4,6 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 - Ubuntu 22.04
 
-- GPU mode (cuda:11.8.0-cudnn8-runtime)
-   - CUDA 11.8
-   - cudnn 8
-
 - Perl 5.36.0 (with plenv)
 - Python 3.10 (with Miniconda)
     - MACS2-2.2.9.1
