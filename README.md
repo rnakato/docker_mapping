@@ -24,6 +24,12 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 ## Changelog
 
+- 2024.03
+  - Fixed a bug in `download_genomedata.sh` that did not download the genome data correctly.
+
+- 2024.02.2
+  - Install MS core fonts (ttf-mscorefonts-installer)
+
 - 2024.02
   - Installed `sudo`
   - Updated Miniconda from Python 3.9 to Python 3.10
