@@ -27,7 +27,7 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 - 2024.03.2
   - Added `mptable.UCSC.T2T.28mer.flen150.txt` and `mptable.UCSC.T2T.36mer.flen150.txt` in `SSP/data/mptable`.
   - Added the ideogram file for the T2T genome in `DROMPAplus/data/ideogram`.
-  - Modified download_genomedata.sh to download the reference file of the T2T genome.
+  - Modified `download_genomedata.sh` to download the reference file of the T2T genome.
   - Updated chromap from v0.2.5 to v0.2.6
 
 - 2024.03
