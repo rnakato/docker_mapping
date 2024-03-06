@@ -1,4 +1,4 @@
-FROM rnakato/database:2024.03
+FROM rnakato/database:2024.03.2
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -44,10 +44,10 @@ COPY bowtie2-2.5.3-linux-x86_64.zip bowtie2-2.5.3-linux-x86_64.zip
 RUN unzip bowtie2-2.5.3-linux-x86_64.zip \
     && rm bowtie2-2.5.3-linux-x86_64.zip
 
-# Chromap 0.2.5
-COPY chromap-0.2.5_x64-linux.tar.bz2 chromap-0.2.5_x64-linux.tar.bz2
-RUN tar xvfj chromap-0.2.5_x64-linux.tar.bz2 \
-     && rm chromap-0.2.5_x64-linux.tar.bz2
+# Chromap 0.2.6
+COPY chromap-0.2.6_x64-linux.tar.bz2 chromap-0.2.6_x64-linux.tar.bz2
+RUN tar xvfj chromap-0.2.6_x64-linux.tar.bz2 \
+     && rm chromap-0.2.6_x64-linux.tar.bz2
 
 COPY script/build-index.sh scripts/build-index.sh
 

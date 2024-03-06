@@ -16,13 +16,19 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 - BWA v0.7.17
 - Bowtie v1.3.1
 - Bowtie2 v2.5.3
-- chromap v0.2.5
+- chromap v0.2.6
 - SAMtools v1.19.2
 - BEDtools v2.31.0
 - SRAtoolkit v3.0.10
 - OpenBLAS v0.3.24
 
 ## Changelog
+
+- 2024.03.2
+  - Added `mptable.UCSC.T2T.28mer.flen150.txt` and `mptable.UCSC.T2T.36mer.flen150.txt` in `SSP/data/mptable`.
+  - Added the ideogram file for the T2T genome in `DROMPAplus/data/ideogram`.
+  - Modified download_genomedata.sh to download the reference file of the T2T genome.
+  - Updated chromap from v0.2.5 to v0.2.6
 
 - 2024.03
   - Fixed a bug in `download_genomedata.sh` that did not download the genome data correctly.
