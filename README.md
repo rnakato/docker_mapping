@@ -24,6 +24,14 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 ## Changelog
 
+- 2024.04
+  - Changed Python environment from conda to micromamba (`/opt/micromamba`)
+
+- 2024.03.3
+  - `download_genomedata.sh`: 
+    - Updated the version of Ensemble data from 106 to 111.
+    - Added `Medaka` genome.
+
 - 2024.03.2
   - Added `mptable.UCSC.T2T.28mer.flen150.txt` and `mptable.UCSC.T2T.36mer.flen150.txt` in `SSP/data/mptable`.
   - Added the ideogram file for the T2T genome in `DROMPAplus/data/ideogram`.

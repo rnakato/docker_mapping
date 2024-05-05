@@ -1,4 +1,4 @@
-FROM rnakato/database:2024.03.2
+FROM rnakato/database:2024.04
 LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -55,4 +55,5 @@ ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64
 
 USER ubuntu
 WORKDIR /home/ubuntu
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash"]
