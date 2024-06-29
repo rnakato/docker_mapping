@@ -24,6 +24,9 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 ## Changelog
 
+- 2024.06
+  - Updated script/build-index.sh
+
 - 2024.04
   - Changed Python environment from conda to micromamba (`/opt/micromamba`)
 

@@ -4,9 +4,10 @@ pwd=`pwd`
 function usage()
 {
     echo "$cmdname [-p ncore] -a <program> <odir>" 1>&2
-    echo "  program: bowtie, bowtie-cs, bowtie2, bwa, chromap" 1>&2
-    echo "  Example:" 1>&2
-    echo "         $cmdname bowtie2 Ensembl-GRCh38" 1>&2
+    echo "   <program>: bowtie, bowtie-cs, bowtie2, bwa, chromap, bismark" 1>&2
+    echo '   <Ddir>: Reference data directory' 1>&2
+    echo "   Example:" 1>&2
+    echo "         $cmdname bowtie2 Referencedata_hg38" 1>&2
 }
 
 ncore=4
@@ -14,8 +15,10 @@ full=0
 while getopts ap: option
 do
     case ${option} in
-        a) full=1 ;;
-        p) ncore=${OPTARG} ;;
+        a) full=1;;
+        p) ncore=${OPTARG}
+           isnumber.sh $ncore "-p" || exit 1
+           ;;
         *)
             usage
             exit 1
@@ -94,5 +97,13 @@ elif test $program = "bwa" ; then
     command="$binary index -p $indexdir/$name $fa"
     command_version="$binary"
     ex $program $name "$command" "$command_version"
-    ln -rsf $fa $indexdir/$name.fa
+    ln -rsf $fa $indexdir/$name
+elif test $program = "bismark" ; then
+    binary="bismark_genome_preparation"
+    indexdir=$odir/bismark-indexes_$name
+    mkdir -p $indexdir
+    ln -rsf $fa $indexdir/genome.fa
+    command="$binary --parallel $ncore --verbose $indexdir"
+    command_version="$binary --version"
+    ex $program $name "$command" "$command_version"
 fi
