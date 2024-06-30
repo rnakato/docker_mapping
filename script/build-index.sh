@@ -106,4 +106,8 @@ elif test $program = "bismark" ; then
     command="$binary --parallel $ncore --verbose $indexdir"
     command_version="$binary --version"
     ex $program $name "$command" "$command_version"
+else
+    echo "Error: program $program is not recognized." 1>&2
+    usage
+    exit 1
 fi

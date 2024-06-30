@@ -1,5 +1,5 @@
 FROM rnakato/database:2024.04
-LABEL maintainer "Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
+LABEL maintainer="Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /opt
@@ -49,9 +49,15 @@ COPY chromap-0.2.6_x64-linux.tar.bz2 chromap-0.2.6_x64-linux.tar.bz2
 RUN tar xvfj chromap-0.2.6_x64-linux.tar.bz2 \
      && rm chromap-0.2.6_x64-linux.tar.bz2
 
+# Bismark v0.22.3
+COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+RUN tar zxvf Bismark.0.22.3.tar.gz \
+    && rm Bismark.0.22.3.tar.gz
+
+
 COPY script/build-index.sh scripts/build-index.sh
 
-ENV PATH ${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.5.3-linux-x86_64:/opt/bwa-mem2-2.0pre2_x64-linux
+ENV PATH=${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.5.3-linux-x86_64:/opt/Bismark-0.22.3/:/opt/bwa-mem2-2.0pre2_x64-linux
 
 USER ubuntu
 WORKDIR /home/ubuntu

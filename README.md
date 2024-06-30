@@ -17,6 +17,7 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 - Bowtie v1.3.1
 - Bowtie2 v2.5.3
 - chromap v0.2.6
+- Bismark v0.22.3
 - SAMtools v1.19.2
 - BEDtools v2.31.0
 - SRAtoolkit v3.0.10
@@ -25,7 +26,8 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 ## Changelog
 
 - 2024.06
-  - Updated script/build-index.sh
+  - Installed Bismark for DNA methylation analysis
+  - Updated script/build-index.sh to include Bismark
 
 - 2024.04
   - Changed Python environment from conda to micromamba (`/opt/micromamba`)
