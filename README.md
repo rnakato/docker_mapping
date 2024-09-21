@@ -25,6 +25,9 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 ## Changelog
 
+- 2024.08
+  - Updated ChIPseqTools (DROMPAplus v.1.20.0 and SSP v1.4.0)
+
 - 2024.06
   - Installed Bismark for DNA methylation analysis
   - Updated script/build-index.sh to include Bismark
