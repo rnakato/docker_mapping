@@ -15,8 +15,8 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 - BWA v0.7.17
 - Bowtie v1.3.1
-- Bowtie2 v2.5.3
-- chromap v0.2.6
+- Bowtie2 v2.5.4
+- chromap v0.3.2
 - Bismark v0.22.3
 - SAMtools v1.19.2
 - BEDtools v2.31.0
@@ -24,6 +24,27 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 - OpenBLAS v0.3.24
 
 ## Changelog
+
+- 2026.03
+  - Updated chromap from v0.3.0 to v0.3.2
+  - Added `download_RPE1.sh` to download the RPE1 genome data.
+  - Added [pfastq-dump](https://github.com/inutano/pfastq-dump) (a bash implementation of parallel-fastq-dump)  and removed parallel-fastq-dump
+  - Bug fix: lost path to sratoolkit 3.2.1 in PATH
+
+- 2025.07
+  - `download_genomedata.sh`: Added `T2T-mhaESC` genome (T2T for mouse)
+  - Added minimap2 v2.30-r1287
+  - Update ChIPseqTools (DROMPAplus v.1.20.1)
+  - Updated bowtie2 from 2.5.3 to 2.5.4
+
+- 2025.06
+  - Updated chromap from 0.2.6 to 0.3.0
+
+- 2024.10
+  - Updated SAMtools from 1.19.2 to 1.21
+  - Updated SRA Toolkit from 3.0.10 to v3.1.1
+  - Added [parallel-fastq-dump](https://github.com/rvalieris/parallel-fastq-dump)
+  - Added `Arabidopsis thaliana` genome (TAIR10) in `download_genomedata.sh`.
 
 - 2024.08
   - Updated ChIPseqTools (DROMPAplus v.1.20.0 and SSP v1.4.0)
@@ -36,7 +57,7 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
   - Changed Python environment from conda to micromamba (`/opt/micromamba`)
 
 - 2024.03.3
-  - `download_genomedata.sh`: 
+  - `download_genomedata.sh`:
     - Updated the version of Ensemble data from 106 to 111.
     - Added `Medaka` genome.
 
