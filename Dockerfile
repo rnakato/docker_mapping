@@ -58,10 +58,10 @@ RUN tar zxvf chromap-0.3.2.tar.gz \
     && rm -rf /opt/chromap-0.3.2 /opt/chromap-0.3.2.tar.gz
 
 # minimap2 2.30-r1287
-COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
-RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2 \
-    && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/ \
-    && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30_x64-linux
+#COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
+#RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2 \
+#    && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/ \
+#    && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30_x64-linux
 
 COPY script/build-index.sh scripts/build-index.sh
 

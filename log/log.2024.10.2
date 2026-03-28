@@ -1,0 +1,764 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 132B 0.0s
+#1 transferring dockerfile: 2.08kB 0.1s done
+#1 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/rnakato/database:2024.10
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 0.0s
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.3s
+
+#4 [internal] load build context
+#4 transferring context: 1.33kB 0.0s done
+#4 DONE 0.3s
+
+#5 [ 1/19] FROM docker.io/rnakato/database:2024.10
+#5 DONE 1.3s
+
+#6 [ 2/19] WORKDIR /opt
+#6 DONE 1.3s
+
+#7 [ 3/19] RUN apt-get update     && apt-get install -y --no-install-recommends     libbz2-dev     libz-dev     libncurses-dev     pigz     unzip     && apt-get clean     && rm -rf /var/lib/apt/lists
+#7 4.388 Hit:1 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease
+#7 4.761 Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#7 4.782 Hit:3 http://archive.ubuntu.com/ubuntu jammy InRelease
+#7 4.944 Get:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#7 5.706 Hit:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+#7 8.620 Fetched 257 kB in 5s (55.4 kB/s)
+#7 8.620 Reading package lists...
+#7 9.446 W: https://cloud.r-project.org/bin/linux/ubuntu/jammy-cran40/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+#7 9.497 Reading package lists...
+#7 10.30 Building dependency tree...
+#7 10.48 Reading state information...
+#7 10.67 libbz2-dev is already the newest version (1.0.8-5build1).
+#7 10.67 pigz is already the newest version (2.6-1).
+#7 10.67 libncurses-dev is already the newest version (6.3-2ubuntu0.1).
+#7 10.67 libncurses-dev set to manually installed.
+#7 10.67 unzip is already the newest version (6.0-26ubuntu3.2).
+#7 10.67 zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu9.2).
+#7 10.67 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 DONE 11.1s
+
+#8 [ 4/19] COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
+#8 DONE 0.7s
+
+#9 [ 5/19] RUN tar xvfj bwa-0.7.17.tar.bz2     && cd bwa-0.7.17     && sed -i '33d' rle.h     && make     && rm /opt/bwa-0.7.17.tar.bz2
+#9 0.967 bwa-0.7.17/
+#9 0.967 bwa-0.7.17/bntseq.c
+#9 0.967 bwa-0.7.17/utils.c
+#9 0.968 bwa-0.7.17/bwt.h
+#9 0.968 bwa-0.7.17/bwamem.h
+#9 0.968 bwa-0.7.17/bwtsw2_core.c
+#9 0.968 bwa-0.7.17/bwase.h
+#9 0.968 bwa-0.7.17/bwt.c
+#9 0.968 bwa-0.7.17/bwt_lite.h
+#9 0.968 bwa-0.7.17/README.md
+#9 0.968 bwa-0.7.17/khash.h
+#9 0.968 bwa-0.7.17/main.c
+#9 0.968 bwa-0.7.17/bwtsw2.h
+#9 0.971 bwa-0.7.17/bwt_lite.c
+#9 0.971 bwa-0.7.17/ksort.h
+#9 0.971 bwa-0.7.17/bwtgap.h
+#9 0.971 bwa-0.7.17/NEWS.md
+#9 0.971 bwa-0.7.17/bwa.1
+#9 0.971 bwa-0.7.17/rle.c
+#9 0.972 bwa-0.7.17/bwtaln.c
+#9 0.972 bwa-0.7.17/bwamem_extra.c
+#9 0.972 bwa-0.7.17/bwtaln.h
+#9 0.972 bwa-0.7.17/rope.c
+#9 0.972 bwa-0.7.17/rle.h
+#9 0.972 bwa-0.7.17/kopen.c
+#9 0.972 bwa-0.7.17/kthread.c
+#9 0.972 bwa-0.7.17/bamlite.h
+#9 0.972 bwa-0.7.17/bwtsw2_chain.c
+#9 0.972 bwa-0.7.17/is.c
+#9 0.972 bwa-0.7.17/QSufSort.h
+#9 0.972 bwa-0.7.17/maxk.c
+#9 0.972 bwa-0.7.17/bwtsw2_aux.c
+#9 0.973 bwa-0.7.17/bwtgap.c
+#9 0.973 bwa-0.7.17/ChangeLog
+#9 0.973 bwa-0.7.17/Makefile
+#9 0.974 bwa-0.7.17/bamlite.c
+#9 0.974 bwa-0.7.17/bwamem_pair.c
+#9 0.974 bwa-0.7.17/COPYING
+#9 0.974 bwa-0.7.17/utils.h
+#9 0.974 bwa-0.7.17/pemerge.c
+#9 0.974 bwa-0.7.17/fastmap.c
+#9 0.974 bwa-0.7.17/ksw.c
+#9 0.975 bwa-0.7.17/kstring.c
+#9 0.975 bwa-0.7.17/kstring.h
+#9 0.975 bwa-0.7.17/bwase.c
+#9 0.975 bwa-0.7.17/bntseq.h
+#9 0.975 bwa-0.7.17/xa2multi.pl
+#9 0.975 bwa-0.7.17/bwaseqio.c
+#9 0.975 bwa-0.7.17/example.c
+#9 0.975 bwa-0.7.17/kseq.h
+#9 0.975 bwa-0.7.17/QSufSort.c
+#9 0.975 bwa-0.7.17/bwape.c
+#9 0.975 bwa-0.7.17/bwashm.c
+#9 0.976 bwa-0.7.17/kbtree.h
+#9 0.976 bwa-0.7.17/rope.h
+#9 0.976 bwa-0.7.17/bwamem.c
+#9 0.976 bwa-0.7.17/bwakit/
+#9 0.976 bwa-0.7.17/bwakit/README.md
+#9 0.976 bwa-0.7.17/bwakit/typeHLA.js
+#9 0.976 bwa-0.7.17/bwakit/bwa-postalt.js
+#9 0.976 bwa-0.7.17/bwakit/run-gen-ref
+#9 0.977 bwa-0.7.17/bwakit/run-bwamem
+#9 0.977 bwa-0.7.17/bwakit/typeHLA-selctg.js
+#9 0.977 bwa-0.7.17/bwakit/typeHLA.sh
+#9 0.977 bwa-0.7.17/bwakit/run-HLA
+#9 0.977 bwa-0.7.17/malloc_wrap.c
+#9 0.977 bwa-0.7.17/bwt_gen.c
+#9 0.977 bwa-0.7.17/.travis.yml
+#9 0.977 bwa-0.7.17/bwa.c
+#9 0.977 bwa-0.7.17/bwtsw2_main.c
+#9 0.977 bwa-0.7.17/kvec.h
+#9 0.977 bwa-0.7.17/ksw.h
+#9 0.978 bwa-0.7.17/README-alt.md
+#9 0.978 bwa-0.7.17/malloc_wrap.h
+#9 0.978 bwa-0.7.17/bwtsw2_pair.c
+#9 0.978 bwa-0.7.17/bwtindex.c
+#9 0.978 bwa-0.7.17/bwa.h
+#9 0.978 bwa-0.7.17/qualfa2fq.pl
+#9 0.985 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  utils.c -o utils.o
+#9 1.338 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  kthread.c -o kthread.o
+#9 1.412 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  kstring.c -o kstring.o
+#9 1.452 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  ksw.c -o ksw.o
+#9 1.795 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwt.c -o bwt.o
+#9 2.057 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bntseq.c -o bntseq.o
+#9 2.314 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwa.c -o bwa.o
+#9 2.603 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwamem.c -o bwamem.o
+#9 4.377 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwamem_pair.c -o bwamem_pair.o
+#9 4.719 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwamem_extra.c -o bwamem_extra.o
+#9 4.884 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  malloc_wrap.c -o malloc_wrap.o
+#9 4.929 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  QSufSort.c -o QSufSort.o
+#9 5.066 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwt_gen.c -o bwt_gen.o
+#9 5.090 bwt_gen.c: In function ‘BWTIncBuildRelativeRank’:
+#9 5.090 bwt_gen.c:879:17: warning: variable ‘oldInverseSa0RelativeRank’ set but not used [-Wunused-but-set-variable]
+#9 5.090   879 |         bgint_t oldInverseSa0RelativeRank = 0;
+#9 5.090       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.091 bwt_gen.c: In function ‘BWTIncMergeBwt’:
+#9 5.091 bwt_gen.c:953:22: warning: variable ‘bitsInWordMinusBitPerChar’ set but not used [-Wunused-but-set-variable]
+#9 5.091   953 |         unsigned int bitsInWordMinusBitPerChar;
+#9 5.091       |                      ^~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.458 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  rope.c -o rope.o
+#9 5.490 rope.c: In function ‘rope_restore_node’:
+#9 5.490 rope.c:282:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   282 |         fread(&is_bottom, 1, 1, fp);
+#9 5.490       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.490 rope.c:283:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   283 |         fread(&n, 2, 1, fp);
+#9 5.490       |         ^~~~~~~~~~~~~~~~~~~
+#9 5.490 rope.c:291:25: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   291 |                         fread(p[i].c, 8, 6, fp);
+#9 5.490       |                         ^~~~~~~~~~~~~~~~~~~~~~~
+#9 5.490 rope.c:292:25: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   292 |                         fread(q, 2, 1, fp);
+#9 5.490       |                         ^~~~~~~~~~~~~~~~~~
+#9 5.490 rope.c:293:25: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   293 |                         fread(q + 1, 1, *q, fp);
+#9 5.490       |                         ^~~~~~~~~~~~~~~~~~~~~~~
+#9 5.490 rope.c: In function ‘rope_restore’:
+#9 5.490 rope.c:312:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   312 |         fread(&r->max_nodes, 4, 1, fp);
+#9 5.490       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.490 rope.c:313:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.490   313 |         fread(&r->block_len, 4, 1, fp);
+#9 5.490       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.661 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  rle.c -o rle.o
+#9 5.855 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  is.c -o is.o
+#9 6.003 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtindex.c -o bwtindex.o
+#9 6.153 ar -csru libbwa.a utils.o kthread.o kstring.o ksw.o bwt.o bntseq.o bwa.o bwamem.o bwamem_pair.o bwamem_extra.o malloc_wrap.o QSufSort.o bwt_gen.o rope.o rle.o is.o bwtindex.o
+#9 6.155 ar: `u' modifier ignored since `D' is the default (see `U')
+#9 6.235 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwashm.c -o bwashm.o
+#9 6.268 bwashm.c: In function ‘bwa_shm_stage’:
+#9 6.268 bwashm.c:29:9: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 6.268    29 |         ftruncate(shmid, BWA_CTL_SIZE);
+#9 6.268       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 6.268 bwashm.c:66:9: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 6.268    66 |         ftruncate(shmid, idx->l_mem);
+#9 6.268       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 6.346 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwase.c -o bwase.o
+#9 6.679 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwaseqio.c -o bwaseqio.o
+#9 6.844 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtgap.c -o bwtgap.o
+#9 7.052 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtaln.c -o bwtaln.o
+#9 7.207 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bamlite.c -o bamlite.o
+#9 7.316 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwape.c -o bwape.o
+#9 7.753 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  kopen.c -o kopen.o
+#9 7.920 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  pemerge.c -o pemerge.o
+#9 8.088 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  maxk.c -o maxk.o
+#9 8.160 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_core.c -o bwtsw2_core.o
+#9 8.824 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_main.c -o bwtsw2_main.o
+#9 8.899 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_aux.c -o bwtsw2_aux.o
+#9 9.452 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwt_lite.c -o bwt_lite.o
+#9 9.531 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_chain.c -o bwtsw2_chain.o
+#9 9.712 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  fastmap.c -o fastmap.o
+#9 9.950 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_pair.c -o bwtsw2_pair.o
+#9 10.14 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  main.c -o main.o
+#9 10.21 gcc -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS bwashm.o bwase.o bwaseqio.o bwtgap.o bwtaln.o bamlite.o bwape.o kopen.o pemerge.o maxk.o bwtsw2_core.o bwtsw2_main.o bwtsw2_aux.o bwt_lite.o bwtsw2_chain.o fastmap.o bwtsw2_pair.o main.o -o bwa -L. -lbwa -lm -lz -lpthread -lrt
+#9 DONE 10.9s
+
+#10 [ 6/19] COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#10 DONE 0.6s
+
+#11 [ 7/19] RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2     && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#11 DONE 1.6s
+
+#12 [ 8/19] COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
+#12 DONE 0.9s
+
+#13 [ 9/19] RUN unzip bowtie-1.3.1-linux-x86_64.zip     && rm bowtie-1.3.1-linux-x86_64.zip
+#13 0.829 Archive:  bowtie-1.3.1-linux-x86_64.zip
+#13 0.829    creating: bowtie-1.3.1-linux-x86_64/
+#13 0.829   inflating: bowtie-1.3.1-linux-x86_64/LICENSE  
+#13 0.829    creating: bowtie-1.3.1-linux-x86_64/doc/
+#13 0.830   inflating: bowtie-1.3.1-linux-x86_64/doc/README  
+#13 0.830   inflating: bowtie-1.3.1-linux-x86_64/doc/manual.html  
+#13 0.832   inflating: bowtie-1.3.1-linux-x86_64/doc/style.css  
+#13 0.832   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-s  
+#13 0.910    creating: bowtie-1.3.1-linux-x86_64/genomes/
+#13 0.910   inflating: bowtie-1.3.1-linux-x86_64/genomes/NC_008253.fna  
+#13 0.945   inflating: bowtie-1.3.1-linux-x86_64/MANUAL  
+#13 0.946    creating: bowtie-1.3.1-linux-x86_64/indexes/
+#13 0.946   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.4.ebwt  
+#13 0.955   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.2.ebwt  
+#13 0.960   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.3.ebwt  
+#13 0.961   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.rev.2.ebwt  
+#13 0.966   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.README  
+#13 0.966   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.rev.1.ebwt  
+#13 0.978   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.1.ebwt  
+#13 0.990   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-l-debug  
+#13 1.090   inflating: bowtie-1.3.1-linux-x86_64/NEWS  
+#13 1.091   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-l  
+#13 1.166   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-s  
+#13 1.242   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-l-debug  
+#13 1.321   inflating: bowtie-1.3.1-linux-x86_64/AUTHORS  
+#13 1.321   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-s-debug  
+#13 1.461   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-s-debug  
+#13 1.538   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build  
+#13 1.538    creating: bowtie-1.3.1-linux-x86_64/reads/
+#13 1.538   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000.raw  
+#13 1.539   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_interleaved.fq  
+#13 1.540   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_1.fa  
+#13 1.540   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_1.fq  
+#13 1.541   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_2.fa  
+#13 1.541   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_10000snp.fa  
+#13 1.546   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_2.fq  
+#13 1.546   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000.fq  
+#13 1.547   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000.fa  
+#13 1.547   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_10000snp.fq  
+#13 1.552   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-l-debug  
+#13 1.691   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-s-debug  
+#13 1.792    creating: bowtie-1.3.1-linux-x86_64/scripts/
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_mm8.sh  
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_hg18.sh  
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/build_test.sh  
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/best_verify.pl  
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/bs_mapability.pl  
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/colorize_fastq.pl  
+#13 1.792   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_rn4.sh  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_e_coli.sh  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/mapability.pl  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/bowtie-hbb.sh  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/reconcile_alignments.pl  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/run-hbb.sh  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_canFam2.sh  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_c_elegans.sh  
+#13 1.793   inflating: bowtie-1.3.1-linux-x86_64/scripts/reconcile_alignments_pe.pl  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_2b_occ_lookup.pl  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/pe_verify.pl  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/convert_quals.pl  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_dnamasks2colormask.pl  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_m_musculus_ncbi37.sh  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_mm9.sh  
+#13 1.794   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_galGal3.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_h_sapiens_ncbi37.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_h_sapiens_ncbi36.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_solqual_lookup.pl  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_b_taurus_UMD3.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_a_thaliana_tair.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/fastq_to_tabbed.pl  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_occ_lookup.pl  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_s_cerevisiae.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_d_melanogaster.sh  
+#13 1.795   inflating: bowtie-1.3.1-linux-x86_64/scripts/colorize_fasta.pl  
+#13 1.796   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_hg19.sh  
+#13 1.796   inflating: bowtie-1.3.1-linux-x86_64/scripts/infer_fraglen.pl  
+#13 1.796   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-l  
+#13 1.897  extracting: bowtie-1.3.1-linux-x86_64/VERSION  
+#13 1.897   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-s  
+#13 1.999   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-l  
+#13 2.079   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect  
+#13 2.079   inflating: bowtie-1.3.1-linux-x86_64/bowtie  
+#13 2.079   inflating: bowtie-1.3.1-linux-x86_64/MANUAL.markdown  
+#13 2.080   inflating: bowtie-1.3.1-linux-x86_64/TUTORIAL  
+#13 DONE 3.4s
+
+#14 [10/19] COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+#14 DONE 0.7s
+
+#15 [11/19] RUN unzip bowtie-1.1.2-linux-x86_64.zip     && rm bowtie-1.1.2-linux-x86_64.zip
+#15 0.860 Archive:  bowtie-1.1.2-linux-x86_64.zip
+#15 0.860    creating: bowtie-1.1.2/
+#15 0.860    creating: bowtie-1.1.2/scripts/
+#15 0.860   inflating: bowtie-1.1.2/scripts/build_test.sh  
+#15 0.860   inflating: bowtie-1.1.2/scripts/make_a_thaliana_tair.sh  
+#15 0.860   inflating: bowtie-1.1.2/scripts/make_b_taurus_UMD3.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_canFam2.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_c_elegans.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_d_melanogaster.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_e_coli.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_galGal3.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_hg18.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_hg19.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_h_sapiens_ncbi36.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_h_sapiens_ncbi37.sh  
+#15 0.861   inflating: bowtie-1.1.2/scripts/make_mm8.sh  
+#15 0.862   inflating: bowtie-1.1.2/scripts/make_mm9.sh  
+#15 0.862   inflating: bowtie-1.1.2/scripts/make_m_musculus_ncbi37.sh  
+#15 0.862   inflating: bowtie-1.1.2/scripts/make_rn4.sh  
+#15 0.862   inflating: bowtie-1.1.2/scripts/make_s_cerevisiae.sh  
+#15 0.862   inflating: bowtie-1.1.2/scripts/best_verify.pl  
+#15 0.862   inflating: bowtie-1.1.2/scripts/bs_mapability.pl  
+#15 0.862   inflating: bowtie-1.1.2/scripts/colorize_fasta.pl  
+#15 0.862   inflating: bowtie-1.1.2/scripts/colorize_fastq.pl  
+#15 0.862   inflating: bowtie-1.1.2/scripts/convert_quals.pl  
+#15 0.863   inflating: bowtie-1.1.2/scripts/fastq_to_tabbed.pl  
+#15 0.863   inflating: bowtie-1.1.2/scripts/gen_2b_occ_lookup.pl  
+#15 0.863   inflating: bowtie-1.1.2/scripts/gen_dnamasks2colormask.pl  
+#15 0.863   inflating: bowtie-1.1.2/scripts/gen_occ_lookup.pl  
+#15 0.863   inflating: bowtie-1.1.2/scripts/gen_solqual_lookup.pl  
+#15 0.867   inflating: bowtie-1.1.2/scripts/infer_fraglen.pl  
+#15 0.867   inflating: bowtie-1.1.2/scripts/mapability.pl  
+#15 0.867   inflating: bowtie-1.1.2/scripts/pe_verify.pl  
+#15 0.867   inflating: bowtie-1.1.2/scripts/reconcile_alignments_pe.pl  
+#15 0.868   inflating: bowtie-1.1.2/scripts/reconcile_alignments.pl  
+#15 0.868    creating: bowtie-1.1.2/indexes/
+#15 0.868   inflating: bowtie-1.1.2/indexes/e_coli.1.ebwt  
+#15 0.880   inflating: bowtie-1.1.2/indexes/e_coli.2.ebwt  
+#15 0.885   inflating: bowtie-1.1.2/indexes/e_coli.3.ebwt  
+#15 0.885   inflating: bowtie-1.1.2/indexes/e_coli.4.ebwt  
+#15 0.895   inflating: bowtie-1.1.2/indexes/e_coli.README  
+#15 0.895   inflating: bowtie-1.1.2/indexes/e_coli.rev.1.ebwt  
+#15 0.907   inflating: bowtie-1.1.2/indexes/e_coli.rev.2.ebwt  
+#15 0.912    creating: bowtie-1.1.2/genomes/
+#15 0.912   inflating: bowtie-1.1.2/genomes/NC_008253.fna  
+#15 0.947    creating: bowtie-1.1.2/reads/
+#15 0.947   inflating: bowtie-1.1.2/reads/e_coli_1000.fa  
+#15 0.948   inflating: bowtie-1.1.2/reads/e_coli_1000.fq  
+#15 0.948   inflating: bowtie-1.1.2/reads/e_coli_1000.raw  
+#15 0.949   inflating: bowtie-1.1.2/reads/e_coli_1000_1.fa  
+#15 0.949   inflating: bowtie-1.1.2/reads/e_coli_1000_1.fq  
+#15 0.950   inflating: bowtie-1.1.2/reads/e_coli_1000_2.fa  
+#15 0.950   inflating: bowtie-1.1.2/reads/e_coli_1000_2.fq  
+#15 0.951   inflating: bowtie-1.1.2/reads/e_coli_10000snp.fa  
+#15 0.954   inflating: bowtie-1.1.2/reads/e_coli_10000snp.fq  
+#15 0.958    creating: bowtie-1.1.2/SeqAn-1.1/
+#15 0.958   inflating: bowtie-1.1.2/bowtie     
+#15 0.958   inflating: bowtie-1.1.2/bowtie-build  
+#15 0.958   inflating: bowtie-1.1.2/bowtie-inspect  
+#15 0.958    creating: bowtie-1.1.2/doc/
+#15 0.959   inflating: bowtie-1.1.2/doc/manual.html  
+#15 0.959   inflating: bowtie-1.1.2/doc/README  
+#15 0.959   inflating: bowtie-1.1.2/doc/style.css  
+#15 0.960   inflating: bowtie-1.1.2/AUTHORS    
+#15 0.960   inflating: bowtie-1.1.2/LICENSE    
+#15 0.960   inflating: bowtie-1.1.2/NEWS       
+#15 0.960   inflating: bowtie-1.1.2/MANUAL     
+#15 0.961   inflating: bowtie-1.1.2/MANUAL.markdown  
+#15 0.961   inflating: bowtie-1.1.2/TUTORIAL   
+#15 0.962  extracting: bowtie-1.1.2/VERSION    
+#15 0.962   inflating: bowtie-1.1.2/bowtie-build-s  
+#15 0.965   inflating: bowtie-1.1.2/bowtie-build-l  
+#15 0.968   inflating: bowtie-1.1.2/bowtie-align-s  
+#15 0.974   inflating: bowtie-1.1.2/bowtie-align-l  
+#15 0.981   inflating: bowtie-1.1.2/bowtie-inspect-s  
+#15 0.983   inflating: bowtie-1.1.2/bowtie-inspect-l  
+#15 0.985   inflating: bowtie-1.1.2/bowtie-build-s-debug  
+#15 1.005   inflating: bowtie-1.1.2/bowtie-build-l-debug  
+#15 1.026   inflating: bowtie-1.1.2/bowtie-align-s-debug  
+#15 1.074   inflating: bowtie-1.1.2/bowtie-align-l-debug  
+#15 1.123   inflating: bowtie-1.1.2/bowtie-inspect-s-debug  
+#15 1.135   inflating: bowtie-1.1.2/bowtie-inspect-l-debug  
+#15 DONE 1.9s
+
+#16 [12/19] COPY bowtie2-2.5.3-linux-x86_64.zip bowtie2-2.5.3-linux-x86_64.zip
+#16 DONE 1.0s
+
+#17 [13/19] RUN unzip bowtie2-2.5.3-linux-x86_64.zip     && rm bowtie2-2.5.3-linux-x86_64.zip
+#17 0.862 Archive:  bowtie2-2.5.3-linux-x86_64.zip
+#17 0.863    creating: bowtie2-2.5.3-linux-x86_64/
+#17 0.863   inflating: bowtie2-2.5.3-linux-x86_64/MANUAL  
+#17 0.866   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-align-s-debug  
+#17 1.167  extracting: bowtie2-2.5.3-linux-x86_64/BOWTIE2_VERSION  
+#17 1.167    creating: bowtie2-2.5.3-linux-x86_64/doc/
+#17 1.167   inflating: bowtie2-2.5.3-linux-x86_64/doc/manual.html  
+#17 1.168   inflating: bowtie2-2.5.3-linux-x86_64/doc/style.css  
+#17 1.168   inflating: bowtie2-2.5.3-linux-x86_64/doc/README  
+#17 1.168   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-inspect  
+#17 1.168   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-inspect-s-debug  
+#17 1.292   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-build-l  
+#17 1.438    creating: bowtie2-2.5.3-linux-x86_64/scripts/
+#17 1.438   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_h_sapiens_ncbi36.sh  
+#17 1.438   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_mm9.sh  
+#17 1.438   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_c_elegans.sh  
+#17 1.438   inflating: bowtie2-2.5.3-linux-x86_64/scripts/gen_2b_occ_lookup.pl  
+#17 1.438   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_h_sapiens_ncbi37.sh  
+#17 1.438   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_hg19.sh  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/infer_fraglen.pl  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/bowtie2-hbb.sh  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_s_cerevisiae.sh  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_rn4.sh  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/gen_occ_lookup.pl  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_m_musculus_ncbi37.sh  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/gen_solqual_lookup.pl  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/convert_quals.pl  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_a_thaliana_tair.sh  
+#17 1.439   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_canFam2.sh  
+#17 1.440   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_mm10.sh  
+#17 1.440   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_b_taurus_UMD3.sh  
+#17 1.440   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_hg18.sh  
+#17 1.440   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_e_coli.sh  
+#17 1.440   inflating: bowtie2-2.5.3-linux-x86_64/scripts/make_d_melanogaster.sh  
+#17 1.440   inflating: bowtie2-2.5.3-linux-x86_64/MANUAL.markdown  
+#17 1.441   inflating: bowtie2-2.5.3-linux-x86_64/AUTHORS  
+#17 1.441   inflating: bowtie2-2.5.3-linux-x86_64/TUTORIAL  
+#17 1.441    creating: bowtie2-2.5.3-linux-x86_64/example/
+#17 1.441    creating: bowtie2-2.5.3-linux-x86_64/example/reference/
+#17 1.441   inflating: bowtie2-2.5.3-linux-x86_64/example/reference/lambda_virus.fa  
+#17 1.442    creating: bowtie2-2.5.3-linux-x86_64/example/index/
+#17 1.442   inflating: bowtie2-2.5.3-linux-x86_64/example/index/lambda_virus.4.bt2  
+#17 1.442   inflating: bowtie2-2.5.3-linux-x86_64/example/index/lambda_virus.3.bt2  
+#17 1.442   inflating: bowtie2-2.5.3-linux-x86_64/example/index/lambda_virus.rev.1.bt2  
+#17 1.459   inflating: bowtie2-2.5.3-linux-x86_64/example/index/lambda_virus.rev.2.bt2  
+#17 1.459   inflating: bowtie2-2.5.3-linux-x86_64/example/index/lambda_virus.2.bt2  
+#17 1.460   inflating: bowtie2-2.5.3-linux-x86_64/example/index/lambda_virus.1.bt2  
+#17 1.477    creating: bowtie2-2.5.3-linux-x86_64/example/reads/
+#17 1.477   inflating: bowtie2-2.5.3-linux-x86_64/example/reads/reads_2.fq  
+#17 1.496   inflating: bowtie2-2.5.3-linux-x86_64/example/reads/longreads.fq  
+#17 1.530   inflating: bowtie2-2.5.3-linux-x86_64/example/reads/simulate.pl  
+#17 1.530   inflating: bowtie2-2.5.3-linux-x86_64/example/reads/combined_reads.bam  
+#17 1.559   inflating: bowtie2-2.5.3-linux-x86_64/example/reads/reads_1.fq  
+#17 1.578   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-inspect-l  
+#17 1.702   inflating: bowtie2-2.5.3-linux-x86_64/README.md  
+#17 1.702   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2  
+#17 1.702   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-align-l-debug  
+#17 2.002   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-build-s  
+#17 2.147   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-build-l-debug  
+#17 2.317   inflating: bowtie2-2.5.3-linux-x86_64/NEWS  
+#17 2.318   inflating: bowtie2-2.5.3-linux-x86_64/LICENSE  
+#17 2.318   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-inspect-l-debug  
+#17 2.440   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-align-l  
+#17 2.671   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-align-s  
+#17 2.905   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-build  
+#17 2.905   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-build-s-debug  
+#17 3.073   inflating: bowtie2-2.5.3-linux-x86_64/bowtie2-inspect-s  
+#17 DONE 5.0s
+
+#18 [14/19] COPY chromap-0.2.6_x64-linux.tar.bz2 chromap-0.2.6_x64-linux.tar.bz2
+#18 DONE 2.4s
+
+#19 [15/19] RUN tar xvfj chromap-0.2.6_x64-linux.tar.bz2      && rm chromap-0.2.6_x64-linux.tar.bz2
+#19 1.032 chromap
+#19 DONE 1.5s
+
+#20 [16/19] COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+#20 DONE 0.8s
+
+#21 [17/19] RUN tar zxvf Bismark.0.22.3.tar.gz     && rm Bismark.0.22.3.tar.gz
+#21 1.072 Bismark-0.22.3/
+#21 1.072 Bismark-0.22.3/.travis.yml
+#21 1.072 Bismark-0.22.3/Bismark_alignment_modes.pdf
+#21 1.073 Bismark-0.22.3/CHANGELOG.md
+#21 1.074 Bismark-0.22.3/Docs/
+#21 1.074 Bismark-0.22.3/Docs/Bismark_User_Guide.html
+#21 1.075 Bismark-0.22.3/Docs/FAQ.md
+#21 1.075 Bismark-0.22.3/Docs/Images/
+#21 1.075 Bismark-0.22.3/Docs/Images/Bismark_Bowtie2_HISAT2.png
+#21 1.077 Bismark-0.22.3/Docs/Images/PBAT_SE_M-bias.jpg
+#21 1.077 Bismark-0.22.3/Docs/Images/PE_M-bias.jpg
+#21 1.078 Bismark-0.22.3/Docs/Images/bioinformatics_logo.png
+#21 1.078 Bismark-0.22.3/Docs/Images/bioinformatics_logo.svg
+#21 1.078 Bismark-0.22.3/Docs/Images/bismark.png
+#21 1.078 Bismark-0.22.3/Docs/Images/bismark_summary_report.html
+#21 1.080 Bismark-0.22.3/Docs/Images/bismark_summary_report.txt
+#21 1.080 Bismark-0.22.3/Docs/Images/methylation_concordance.png
+#21 1.082 Bismark-0.22.3/Docs/Images/nucleocoverage.png
+#21 1.083 Bismark-0.22.3/Docs/Images/summary.png
+#21 1.084 Bismark-0.22.3/Docs/README.md
+#21 1.084 Bismark-0.22.3/Docs/make_docs.pl
+#21 1.085 Bismark-0.22.3/NOMe_filtering
+#21 1.085 Bismark-0.22.3/README.md
+#21 1.085 Bismark-0.22.3/_config.yml
+#21 1.085 Bismark-0.22.3/bam2nuc
+#21 1.085 Bismark-0.22.3/bismark
+#21 1.086 Bismark-0.22.3/bismark2bedGraph
+#21 1.087 Bismark-0.22.3/bismark2report
+#21 1.087 Bismark-0.22.3/bismark2summary
+#21 1.087 Bismark-0.22.3/bismark_genome_preparation
+#21 1.087 Bismark-0.22.3/bismark_methylation_extractor
+#21 1.088 Bismark-0.22.3/copy_bismark_files_for_release.pl
+#21 1.088 Bismark-0.22.3/coverage2cytosine
+#21 1.089 Bismark-0.22.3/deduplicate_bismark
+#21 1.089 Bismark-0.22.3/filter_non_conversion
+#21 1.089 Bismark-0.22.3/license.txt
+#21 1.089 Bismark-0.22.3/methylation_consistency
+#21 1.089 Bismark-0.22.3/plotly/
+#21 1.090 Bismark-0.22.3/plotly/Bismark_Alignment_Stats_Summary.png
+#21 1.091 Bismark-0.22.3/plotly/bioinf.logo
+#21 1.091 Bismark-0.22.3/plotly/bismark.logo
+#21 1.091 Bismark-0.22.3/plotly/bismark_bt2_PE_report.html
+#21 1.109 Bismark-0.22.3/plotly/bismark_summary_RRBS.html
+#21 1.127 Bismark-0.22.3/plotly/bismark_summary_WGBS.html
+#21 1.145 Bismark-0.22.3/plotly/bismark_summary_single_cells.html
+#21 1.172 Bismark-0.22.3/plotly/bismark_summary_single_cells.txt
+#21 1.173 Bismark-0.22.3/plotly/plot.ly
+#21 1.191 Bismark-0.22.3/plotly/plotly_template.tpl
+#21 1.192 Bismark-0.22.3/test_data.fastq
+#21 1.203 Bismark-0.22.3/travis_files/
+#21 1.203 Bismark-0.22.3/travis_files/NC_010473.fa.gz
+#21 1.211 Bismark-0.22.3/travis_files/test_R1.fastq.gz
+#21 1.213 Bismark-0.22.3/travis_files/test_R2.fastq.gz
+#21 DONE 1.9s
+
+#22 [18/19] COPY script/build-index.sh scripts/build-index.sh
+#22 DONE 0.7s
+
+#23 [19/19] WORKDIR /home/ubuntu
+#23 DONE 0.7s
+
+#24 exporting to image
+#24 exporting layers
+#24 exporting layers 1.4s done
+#24 writing image sha256:153849a6ba6b237ace327c27e58b03b4f2b48b522932b7bbeb61acb9b1d7df1d 0.0s done
+#24 naming to docker.io/rnakato/mapping:2024.10 0.1s done
+#24 DONE 1.6s
+The push refers to repository [docker.io/rnakato/mapping]
+5f70bf18a086: Preparing
+cf3d3137de82: Preparing
+b9e351d8ad79: Preparing
+2b562a76939d: Preparing
+4b1fb08f5703: Preparing
+05872bbffbef: Preparing
+d264ece3ed3b: Preparing
+fa20d1476cfd: Preparing
+41ee48123b6d: Preparing
+0229d8361ead: Preparing
+f328f118b80c: Preparing
+257836002cf9: Preparing
+f84b491fad35: Preparing
+2fea69817834: Preparing
+d264ece3ed3b: Waiting
+fa20d1476cfd: Waiting
+a43d892c0593: Preparing
+4139776f2101: Preparing
+41ee48123b6d: Waiting
+654552249dec: Preparing
+0229d8361ead: Waiting
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+24e01e74ea7b: Preparing
+5f70bf18a086: Preparing
+f328f118b80c: Waiting
+4e7c0f448b6a: Preparing
+f84b491fad35: Waiting
+257836002cf9: Waiting
+36a9ee0cbebd: Preparing
+05872bbffbef: Waiting
+a43d892c0593: Waiting
+2fea69817834: Waiting
+5f70bf18a086: Preparing
+08e01d9976b1: Preparing
+4139776f2101: Waiting
+83d8a9bfbbeb: Preparing
+46c00f738bde: Preparing
+654552249dec: Waiting
+36a9ee0cbebd: Waiting
+2573e0d81582: Preparing
+24e01e74ea7b: Waiting
+83d8a9bfbbeb: Waiting
+4e7c0f448b6a: Waiting
+2573e0d81582: Waiting
+46c00f738bde: Waiting
+08e01d9976b1: Waiting
+5f70bf18a086: Layer already exists
+cf3d3137de82: Pushed
+05872bbffbef: Pushed
+4b1fb08f5703: Pushed
+2b562a76939d: Pushed
+b9e351d8ad79: Pushed
+41ee48123b6d: Pushed
+0229d8361ead: Pushed
+f84b491fad35: Pushed
+2fea69817834: Pushed
+f328f118b80c: Pushed
+4139776f2101: Pushed
+a43d892c0593: Pushed
+24e01e74ea7b: Mounted from rnakato/database
+654552249dec: Pushed
+4e7c0f448b6a: Mounted from rnakato/database
+36a9ee0cbebd: Mounted from rnakato/database
+08e01d9976b1: Mounted from rnakato/database
+257836002cf9: Pushed
+83d8a9bfbbeb: Mounted from rnakato/database
+46c00f738bde: Mounted from rnakato/database
+2573e0d81582: Mounted from rnakato/database
+d264ece3ed3b: Pushed
+fa20d1476cfd: Pushed
+2024.10: digest: sha256:285a5d2983b5abd7f000295929ca2ede2c094cc6828c85b41357bec3355cd26d size: 6195
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.08kB 0.0s done
+#1 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/rnakato/database:2024.10
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.2s
+
+#4 [ 1/19] FROM docker.io/rnakato/database:2024.10
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 1.33kB 0.0s done
+#5 DONE 0.2s
+
+#6 [10/19] COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+#6 CACHED
+
+#7 [13/19] RUN unzip bowtie2-2.5.3-linux-x86_64.zip     && rm bowtie2-2.5.3-linux-x86_64.zip
+#7 CACHED
+
+#8 [14/19] COPY chromap-0.2.6_x64-linux.tar.bz2 chromap-0.2.6_x64-linux.tar.bz2
+#8 CACHED
+
+#9 [ 3/19] RUN apt-get update     && apt-get install -y --no-install-recommends     libbz2-dev     libz-dev     libncurses-dev     pigz     unzip     && apt-get clean     && rm -rf /var/lib/apt/lists
+#9 CACHED
+
+#10 [ 8/19] COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
+#10 CACHED
+
+#11 [ 6/19] COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#11 CACHED
+
+#12 [ 5/19] RUN tar xvfj bwa-0.7.17.tar.bz2     && cd bwa-0.7.17     && sed -i '33d' rle.h     && make     && rm /opt/bwa-0.7.17.tar.bz2
+#12 CACHED
+
+#13 [11/19] RUN unzip bowtie-1.1.2-linux-x86_64.zip     && rm bowtie-1.1.2-linux-x86_64.zip
+#13 CACHED
+
+#14 [15/19] RUN tar xvfj chromap-0.2.6_x64-linux.tar.bz2      && rm chromap-0.2.6_x64-linux.tar.bz2
+#14 CACHED
+
+#15 [12/19] COPY bowtie2-2.5.3-linux-x86_64.zip bowtie2-2.5.3-linux-x86_64.zip
+#15 CACHED
+
+#16 [17/19] RUN tar zxvf Bismark.0.22.3.tar.gz     && rm Bismark.0.22.3.tar.gz
+#16 CACHED
+
+#17 [ 4/19] COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
+#17 CACHED
+
+#18 [ 2/19] WORKDIR /opt
+#18 CACHED
+
+#19 [16/19] COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+#19 CACHED
+
+#20 [ 9/19] RUN unzip bowtie-1.3.1-linux-x86_64.zip     && rm bowtie-1.3.1-linux-x86_64.zip
+#20 CACHED
+
+#21 [18/19] COPY script/build-index.sh scripts/build-index.sh
+#21 CACHED
+
+#22 [ 7/19] RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2     && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#22 CACHED
+
+#23 [19/19] WORKDIR /home/ubuntu
+#23 CACHED
+
+#24 exporting to image
+#24 exporting layers done
+#24 writing image sha256:153849a6ba6b237ace327c27e58b03b4f2b48b522932b7bbeb61acb9b1d7df1d done
+#24 naming to docker.io/rnakato/mapping:latest 0.0s done
+#24 DONE 0.1s
+The push refers to repository [docker.io/rnakato/mapping]
+5f70bf18a086: Preparing
+cf3d3137de82: Preparing
+b9e351d8ad79: Preparing
+2b562a76939d: Preparing
+4b1fb08f5703: Preparing
+05872bbffbef: Preparing
+d264ece3ed3b: Preparing
+fa20d1476cfd: Preparing
+41ee48123b6d: Preparing
+0229d8361ead: Preparing
+f328f118b80c: Preparing
+fa20d1476cfd: Waiting
+05872bbffbef: Waiting
+257836002cf9: Preparing
+d264ece3ed3b: Waiting
+f84b491fad35: Preparing
+0229d8361ead: Waiting
+41ee48123b6d: Waiting
+2fea69817834: Preparing
+257836002cf9: Waiting
+f328f118b80c: Waiting
+a43d892c0593: Preparing
+2fea69817834: Waiting
+4139776f2101: Preparing
+654552249dec: Preparing
+a43d892c0593: Waiting
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+24e01e74ea7b: Preparing
+4139776f2101: Waiting
+5f70bf18a086: Preparing
+4e7c0f448b6a: Preparing
+654552249dec: Waiting
+36a9ee0cbebd: Preparing
+24e01e74ea7b: Waiting
+4e7c0f448b6a: Waiting
+5f70bf18a086: Preparing
+08e01d9976b1: Preparing
+36a9ee0cbebd: Waiting
+83d8a9bfbbeb: Preparing
+46c00f738bde: Preparing
+08e01d9976b1: Waiting
+83d8a9bfbbeb: Waiting
+2573e0d81582: Preparing
+46c00f738bde: Waiting
+4b1fb08f5703: Layer already exists
+b9e351d8ad79: Layer already exists
+5f70bf18a086: Layer already exists
+cf3d3137de82: Layer already exists
+2b562a76939d: Layer already exists
+d264ece3ed3b: Layer already exists
+05872bbffbef: Layer already exists
+fa20d1476cfd: Layer already exists
+41ee48123b6d: Layer already exists
+0229d8361ead: Layer already exists
+257836002cf9: Layer already exists
+f328f118b80c: Layer already exists
+2fea69817834: Layer already exists
+f84b491fad35: Layer already exists
+a43d892c0593: Layer already exists
+4139776f2101: Layer already exists
+654552249dec: Layer already exists
+24e01e74ea7b: Layer already exists
+4e7c0f448b6a: Layer already exists
+36a9ee0cbebd: Layer already exists
+08e01d9976b1: Layer already exists
+83d8a9bfbbeb: Layer already exists
+46c00f738bde: Layer already exists
+2573e0d81582: Layer already exists
+latest: digest: sha256:285a5d2983b5abd7f000295929ca2ede2c094cc6828c85b41357bec3355cd26d size: 6195

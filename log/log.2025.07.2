@@ -1,0 +1,98 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.42kB done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/rnakato/database:2025.07
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.2s
+
+#4 [ 1/21] FROM docker.io/rnakato/database:2025.07
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.24MB 0.0s done
+#5 DONE 0.2s
+
+#6 [12/21] COPY bowtie2-2.5.4-linux-x86_64.zip bowtie2-2.5.4-linux-x86_64.zip
+#6 CACHED
+
+#7 [15/21] RUN tar zxvf Bismark.0.22.3.tar.gz     && rm Bismark.0.22.3.tar.gz
+#7 CACHED
+
+#8 [10/21] COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+#8 CACHED
+
+#9 [ 7/21] RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2     && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#9 CACHED
+
+#10 [14/21] COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+#10 CACHED
+
+#11 [13/21] RUN unzip bowtie2-2.5.4-linux-x86_64.zip     && rm bowtie2-2.5.4-linux-x86_64.zip
+#11 CACHED
+
+#12 [ 3/21] RUN apt-get update     && apt-get install -y --no-install-recommends     libbz2-dev     libz-dev     libncurses-dev     pigz     unzip     && apt-get clean     && rm -rf /var/lib/apt/lists
+#12 CACHED
+
+#13 [ 4/21] COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
+#13 CACHED
+
+#14 [ 8/21] COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
+#14 CACHED
+
+#15 [ 5/21] RUN tar xvfj bwa-0.7.17.tar.bz2     && cd bwa-0.7.17     && sed -i '33d' rle.h     && make     && rm /opt/bwa-0.7.17.tar.bz2
+#15 CACHED
+
+#16 [ 9/21] RUN unzip bowtie-1.3.1-linux-x86_64.zip     && rm bowtie-1.3.1-linux-x86_64.zip
+#16 CACHED
+
+#17 [11/21] RUN unzip bowtie-1.1.2-linux-x86_64.zip     && rm bowtie-1.1.2-linux-x86_64.zip
+#17 CACHED
+
+#18 [ 2/21] WORKDIR /opt
+#18 CACHED
+
+#19 [ 6/21] COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#19 CACHED
+
+#20 [16/21] COPY chromap-0.3.0.tar.gz chromap-0.3.0.tar.gz
+#20 CACHED
+
+#21 [17/21] RUN tar zxvf chromap-0.3.0.tar.gz     && cd chromap-0.3.0     && make     && cp chromap /usr/local/bin/     && rm -rf /opt/chromap-0.3.0 /opt/chromap-0.3.0.tar.gz
+#21 CACHED
+
+#22 [18/21] COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
+#22 DONE 0.9s
+
+#23 [19/21] RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2     && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/     && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30_x64-linux
+#23 0.936 minimap2-2.30_x64-linux/
+#23 0.936 minimap2-2.30_x64-linux/cookbook.md
+#23 0.938 minimap2-2.30_x64-linux/paftools.js
+#23 0.939 minimap2-2.30_x64-linux/NEWS.md
+#23 0.939 minimap2-2.30_x64-linux/README.md
+#23 0.939 minimap2-2.30_x64-linux/k8
+#23 1.119 minimap2-2.30_x64-linux/FAQ.md
+#23 1.119 minimap2-2.30_x64-linux/minimap2.1
+#23 1.119 minimap2-2.30_x64-linux/LICENSE.txt
+#23 1.119 minimap2-2.30_x64-linux/minimap2
+#23 1.149 minimap2-2.30_x64-linux/README-js.md
+#23 DONE 1.5s
+
+#24 [20/21] COPY script/build-index.sh scripts/build-index.sh
+#24 DONE 0.7s
+
+#25 [21/21] WORKDIR /home/ubuntu
+#25 DONE 0.7s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 0.4s done
+#26 writing image sha256:260df1fc8d146deaee7d3790d3af02aa296a536b527c5715235652fe8b9ddbad 0.0s done
+#26 naming to docker.io/rnakato/mapping:2025.07 0.0s done
+#26 DONE 0.5s
