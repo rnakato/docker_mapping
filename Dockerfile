@@ -1,4 +1,4 @@
-FROM rnakato/database:2026.03
+FROM rnakato/database:2026.04
 LABEL maintainer="Ryuichiro Nakato <rnakato@iqb.u-tokyo.ac.jp>"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -57,11 +57,11 @@ RUN tar zxvf chromap-0.3.2.tar.gz \
     && cp chromap /usr/local/bin/ \
     && rm -rf /opt/chromap-0.3.2 /opt/chromap-0.3.2.tar.gz
 
-# minimap2 2.30-r1287
-#COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
-#RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2 \
-#    && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/ \
-#    && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30_x64-linux
+# minimap2 2.30
+COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
+RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2 \
+    && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/ \
+    && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30
 
 COPY script/build-index.sh scripts/build-index.sh
 

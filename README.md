@@ -25,6 +25,9 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
 
 ## Changelog
 
+- 2026.04
+  - Added minimap2 again
+
 - 2026.03
   - Updated chromap from v0.3.0 to v0.3.2
   - Added `download_RPE1.sh` to download the RPE1 genome data.
