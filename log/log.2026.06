@@ -1,0 +1,1085 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.41kB done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/rnakato/database:2026.06
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.2s
+
+#4 [internal] load build context
+#4 ...
+
+#5 [ 1/21] FROM docker.io/rnakato/database:2026.06
+#5 DONE 1.0s
+
+#4 [internal] load build context
+#4 transferring context: 173.65MB 1.5s done
+#4 DONE 1.8s
+
+#6 [ 2/21] WORKDIR /opt
+#6 DONE 3.9s
+
+#7 [ 3/21] RUN apt-get update     && apt-get install -y --no-install-recommends     libbz2-dev     libz-dev     libncurses-dev     pigz     unzip     && apt-get clean     && rm -rf /var/lib/apt/lists
+#7 1.418 Hit:1 https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/ InRelease
+#7 1.775 Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#7 2.042 Hit:3 http://archive.ubuntu.com/ubuntu jammy InRelease
+#7 2.276 Hit:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+#7 2.518 Hit:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+#7 2.675 Fetched 129 kB in 1s (96.8 kB/s)
+#7 2.675 Reading package lists...
+#7 3.616 W: https://cloud.r-project.org/bin/linux/ubuntu/jammy-cran40/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+#7 3.655 Reading package lists...
+#7 4.590 Building dependency tree...
+#7 4.766 Reading state information...
+#7 4.947 libbz2-dev is already the newest version (1.0.8-5build1).
+#7 4.947 pigz is already the newest version (2.6-1).
+#7 4.947 libncurses-dev is already the newest version (6.3-2ubuntu0.1).
+#7 4.947 libncurses-dev set to manually installed.
+#7 4.947 unzip is already the newest version (6.0-26ubuntu3.2).
+#7 4.947 zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu9.2).
+#7 4.947 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+#7 DONE 5.8s
+
+#8 [ 4/21] COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
+#8 DONE 1.7s
+
+#9 [ 5/21] RUN tar xvfj bwa-0.7.17.tar.bz2     && cd bwa-0.7.17     && sed -i '33d' rle.h     && make     && rm /opt/bwa-0.7.17.tar.bz2
+#9 1.392 bwa-0.7.17/
+#9 1.392 bwa-0.7.17/bntseq.c
+#9 1.392 bwa-0.7.17/utils.c
+#9 1.392 bwa-0.7.17/bwt.h
+#9 1.392 bwa-0.7.17/bwamem.h
+#9 1.392 bwa-0.7.17/bwtsw2_core.c
+#9 1.392 bwa-0.7.17/bwase.h
+#9 1.392 bwa-0.7.17/bwt.c
+#9 1.392 bwa-0.7.17/bwt_lite.h
+#9 1.392 bwa-0.7.17/README.md
+#9 1.392 bwa-0.7.17/khash.h
+#9 1.392 bwa-0.7.17/main.c
+#9 1.393 bwa-0.7.17/bwtsw2.h
+#9 1.393 bwa-0.7.17/bwt_lite.c
+#9 1.393 bwa-0.7.17/ksort.h
+#9 1.393 bwa-0.7.17/bwtgap.h
+#9 1.394 bwa-0.7.17/NEWS.md
+#9 1.394 bwa-0.7.17/bwa.1
+#9 1.394 bwa-0.7.17/rle.c
+#9 1.394 bwa-0.7.17/bwtaln.c
+#9 1.394 bwa-0.7.17/bwamem_extra.c
+#9 1.394 bwa-0.7.17/bwtaln.h
+#9 1.394 bwa-0.7.17/rope.c
+#9 1.394 bwa-0.7.17/rle.h
+#9 1.394 bwa-0.7.17/kopen.c
+#9 1.394 bwa-0.7.17/kthread.c
+#9 1.394 bwa-0.7.17/bamlite.h
+#9 1.394 bwa-0.7.17/bwtsw2_chain.c
+#9 1.394 bwa-0.7.17/is.c
+#9 1.394 bwa-0.7.17/QSufSort.h
+#9 1.394 bwa-0.7.17/maxk.c
+#9 1.395 bwa-0.7.17/bwtsw2_aux.c
+#9 1.395 bwa-0.7.17/bwtgap.c
+#9 1.395 bwa-0.7.17/ChangeLog
+#9 1.396 bwa-0.7.17/Makefile
+#9 1.396 bwa-0.7.17/bamlite.c
+#9 1.396 bwa-0.7.17/bwamem_pair.c
+#9 1.396 bwa-0.7.17/COPYING
+#9 1.396 bwa-0.7.17/utils.h
+#9 1.397 bwa-0.7.17/pemerge.c
+#9 1.397 bwa-0.7.17/fastmap.c
+#9 1.397 bwa-0.7.17/ksw.c
+#9 1.397 bwa-0.7.17/kstring.c
+#9 1.397 bwa-0.7.17/kstring.h
+#9 1.397 bwa-0.7.17/bwase.c
+#9 1.397 bwa-0.7.17/bntseq.h
+#9 1.397 bwa-0.7.17/xa2multi.pl
+#9 1.398 bwa-0.7.17/bwaseqio.c
+#9 1.398 bwa-0.7.17/example.c
+#9 1.398 bwa-0.7.17/kseq.h
+#9 1.398 bwa-0.7.17/QSufSort.c
+#9 1.398 bwa-0.7.17/bwape.c
+#9 1.398 bwa-0.7.17/bwashm.c
+#9 1.398 bwa-0.7.17/kbtree.h
+#9 1.398 bwa-0.7.17/rope.h
+#9 1.398 bwa-0.7.17/bwamem.c
+#9 1.399 bwa-0.7.17/bwakit/
+#9 1.399 bwa-0.7.17/bwakit/README.md
+#9 1.399 bwa-0.7.17/bwakit/typeHLA.js
+#9 1.399 bwa-0.7.17/bwakit/bwa-postalt.js
+#9 1.399 bwa-0.7.17/bwakit/run-gen-ref
+#9 1.399 bwa-0.7.17/bwakit/run-bwamem
+#9 1.399 bwa-0.7.17/bwakit/typeHLA-selctg.js
+#9 1.400 bwa-0.7.17/bwakit/typeHLA.sh
+#9 1.400 bwa-0.7.17/bwakit/run-HLA
+#9 1.400 bwa-0.7.17/malloc_wrap.c
+#9 1.400 bwa-0.7.17/bwt_gen.c
+#9 1.400 bwa-0.7.17/.travis.yml
+#9 1.400 bwa-0.7.17/bwa.c
+#9 1.400 bwa-0.7.17/bwtsw2_main.c
+#9 1.400 bwa-0.7.17/kvec.h
+#9 1.400 bwa-0.7.17/ksw.h
+#9 1.400 bwa-0.7.17/README-alt.md
+#9 1.400 bwa-0.7.17/malloc_wrap.h
+#9 1.401 bwa-0.7.17/bwtsw2_pair.c
+#9 1.401 bwa-0.7.17/bwtindex.c
+#9 1.401 bwa-0.7.17/bwa.h
+#9 1.401 bwa-0.7.17/qualfa2fq.pl
+#9 1.407 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  utils.c -o utils.o
+#9 1.724 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  kthread.c -o kthread.o
+#9 1.794 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  kstring.c -o kstring.o
+#9 1.831 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  ksw.c -o ksw.o
+#9 2.149 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwt.c -o bwt.o
+#9 2.390 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bntseq.c -o bntseq.o
+#9 2.621 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwa.c -o bwa.o
+#9 2.890 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwamem.c -o bwamem.o
+#9 4.506 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwamem_pair.c -o bwamem_pair.o
+#9 4.809 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwamem_extra.c -o bwamem_extra.o
+#9 4.950 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  malloc_wrap.c -o malloc_wrap.o
+#9 4.992 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  QSufSort.c -o QSufSort.o
+#9 5.116 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwt_gen.c -o bwt_gen.o
+#9 5.138 bwt_gen.c: In function ‘BWTIncBuildRelativeRank’:
+#9 5.138 bwt_gen.c:879:17: warning: variable ‘oldInverseSa0RelativeRank’ set but not used [-Wunused-but-set-variable]
+#9 5.138   879 |         bgint_t oldInverseSa0RelativeRank = 0;
+#9 5.138       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.138 bwt_gen.c: In function ‘BWTIncMergeBwt’:
+#9 5.138 bwt_gen.c:953:22: warning: variable ‘bitsInWordMinusBitPerChar’ set but not used [-Wunused-but-set-variable]
+#9 5.138   953 |         unsigned int bitsInWordMinusBitPerChar;
+#9 5.138       |                      ^~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.474 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  rope.c -o rope.o
+#9 5.501 rope.c: In function ‘rope_restore_node’:
+#9 5.501 rope.c:282:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   282 |         fread(&is_bottom, 1, 1, fp);
+#9 5.501       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.501 rope.c:283:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   283 |         fread(&n, 2, 1, fp);
+#9 5.501       |         ^~~~~~~~~~~~~~~~~~~
+#9 5.501 rope.c:291:25: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   291 |                         fread(p[i].c, 8, 6, fp);
+#9 5.501       |                         ^~~~~~~~~~~~~~~~~~~~~~~
+#9 5.501 rope.c:292:25: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   292 |                         fread(q, 2, 1, fp);
+#9 5.501       |                         ^~~~~~~~~~~~~~~~~~
+#9 5.501 rope.c:293:25: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   293 |                         fread(q + 1, 1, *q, fp);
+#9 5.501       |                         ^~~~~~~~~~~~~~~~~~~~~~~
+#9 5.501 rope.c: In function ‘rope_restore’:
+#9 5.501 rope.c:312:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   312 |         fread(&r->max_nodes, 4, 1, fp);
+#9 5.501       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.501 rope.c:313:9: warning: ignoring return value of ‘fread’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 5.501   313 |         fread(&r->block_len, 4, 1, fp);
+#9 5.501       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 5.658 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  rle.c -o rle.o
+#9 5.835 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  is.c -o is.o
+#9 5.966 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtindex.c -o bwtindex.o
+#9 6.099 ar -csru libbwa.a utils.o kthread.o kstring.o ksw.o bwt.o bntseq.o bwa.o bwamem.o bwamem_pair.o bwamem_extra.o malloc_wrap.o QSufSort.o bwt_gen.o rope.o rle.o is.o bwtindex.o
+#9 6.100 ar: `u' modifier ignored since `D' is the default (see `U')
+#9 6.110 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwashm.c -o bwashm.o
+#9 6.138 bwashm.c: In function ‘bwa_shm_stage’:
+#9 6.138 bwashm.c:29:9: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 6.138    29 |         ftruncate(shmid, BWA_CTL_SIZE);
+#9 6.138       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 6.138 bwashm.c:66:9: warning: ignoring return value of ‘ftruncate’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#9 6.138    66 |         ftruncate(shmid, idx->l_mem);
+#9 6.138       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#9 6.208 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwase.c -o bwase.o
+#9 6.511 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwaseqio.c -o bwaseqio.o
+#9 6.659 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtgap.c -o bwtgap.o
+#9 6.849 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtaln.c -o bwtaln.o
+#9 6.990 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bamlite.c -o bamlite.o
+#9 7.094 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwape.c -o bwape.o
+#9 7.503 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  kopen.c -o kopen.o
+#9 7.657 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  pemerge.c -o pemerge.o
+#9 7.809 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  maxk.c -o maxk.o
+#9 7.874 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_core.c -o bwtsw2_core.o
+#9 8.458 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_main.c -o bwtsw2_main.o
+#9 8.522 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_aux.c -o bwtsw2_aux.o
+#9 9.025 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwt_lite.c -o bwt_lite.o
+#9 9.094 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_chain.c -o bwtsw2_chain.o
+#9 9.259 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  fastmap.c -o fastmap.o
+#9 9.475 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  bwtsw2_pair.c -o bwtsw2_pair.o
+#9 9.645 gcc -c -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS  main.c -o main.o
+#9 9.710 gcc -g -Wall -Wno-unused-function -O2 -DHAVE_PTHREAD -DUSE_MALLOC_WRAPPERS bwashm.o bwase.o bwaseqio.o bwtgap.o bwtaln.o bamlite.o bwape.o kopen.o pemerge.o maxk.o bwtsw2_core.o bwtsw2_main.o bwtsw2_aux.o bwt_lite.o bwtsw2_chain.o fastmap.o bwtsw2_pair.o main.o -o bwa -L. -lbwa -lm -lz -lpthread -lrt
+#9 DONE 10.7s
+
+#10 [ 6/21] COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#10 DONE 2.0s
+
+#11 [ 7/21] RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2     && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#11 DONE 3.3s
+
+#12 [ 8/21] COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
+#12 DONE 2.4s
+
+#13 [ 9/21] RUN unzip bowtie-1.3.1-linux-x86_64.zip     && rm bowtie-1.3.1-linux-x86_64.zip
+#13 1.278 Archive:  bowtie-1.3.1-linux-x86_64.zip
+#13 1.278    creating: bowtie-1.3.1-linux-x86_64/
+#13 1.278   inflating: bowtie-1.3.1-linux-x86_64/LICENSE  
+#13 1.279    creating: bowtie-1.3.1-linux-x86_64/doc/
+#13 1.279   inflating: bowtie-1.3.1-linux-x86_64/doc/README  
+#13 1.279   inflating: bowtie-1.3.1-linux-x86_64/doc/manual.html  
+#13 1.280   inflating: bowtie-1.3.1-linux-x86_64/doc/style.css  
+#13 1.281   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-s  
+#13 1.357    creating: bowtie-1.3.1-linux-x86_64/genomes/
+#13 1.357   inflating: bowtie-1.3.1-linux-x86_64/genomes/NC_008253.fna  
+#13 1.391   inflating: bowtie-1.3.1-linux-x86_64/MANUAL  
+#13 1.392    creating: bowtie-1.3.1-linux-x86_64/indexes/
+#13 1.392   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.4.ebwt  
+#13 1.401   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.2.ebwt  
+#13 1.406   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.3.ebwt  
+#13 1.406   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.rev.2.ebwt  
+#13 1.412   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.README  
+#13 1.412   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.rev.1.ebwt  
+#13 1.424   inflating: bowtie-1.3.1-linux-x86_64/indexes/e_coli.1.ebwt  
+#13 1.435   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-l-debug  
+#13 1.527   inflating: bowtie-1.3.1-linux-x86_64/NEWS  
+#13 1.528   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-l  
+#13 1.598   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-s  
+#13 1.669   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-l-debug  
+#13 1.742   inflating: bowtie-1.3.1-linux-x86_64/AUTHORS  
+#13 1.743   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-s-debug  
+#13 1.875   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect-s-debug  
+#13 1.949   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build  
+#13 1.949    creating: bowtie-1.3.1-linux-x86_64/reads/
+#13 1.949   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000.raw  
+#13 1.949   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_interleaved.fq  
+#13 1.950   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_1.fa  
+#13 1.951   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_1.fq  
+#13 1.951   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_2.fa  
+#13 1.952   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_10000snp.fa  
+#13 1.955   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000_2.fq  
+#13 1.955   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000.fq  
+#13 1.956   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_1000.fa  
+#13 1.956   inflating: bowtie-1.3.1-linux-x86_64/reads/e_coli_10000snp.fq  
+#13 1.960   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-l-debug  
+#13 2.092   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-s-debug  
+#13 2.188    creating: bowtie-1.3.1-linux-x86_64/scripts/
+#13 2.188   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_mm8.sh  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_hg18.sh  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/build_test.sh  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/best_verify.pl  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/bs_mapability.pl  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/colorize_fastq.pl  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_rn4.sh  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_e_coli.sh  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/mapability.pl  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/bowtie-hbb.sh  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/reconcile_alignments.pl  
+#13 2.189   inflating: bowtie-1.3.1-linux-x86_64/scripts/run-hbb.sh  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_canFam2.sh  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_c_elegans.sh  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/reconcile_alignments_pe.pl  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_2b_occ_lookup.pl  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/pe_verify.pl  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/convert_quals.pl  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_dnamasks2colormask.pl  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_m_musculus_ncbi37.sh  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_mm9.sh  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_galGal3.sh  
+#13 2.190   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_h_sapiens_ncbi37.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_h_sapiens_ncbi36.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_solqual_lookup.pl  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_b_taurus_UMD3.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_a_thaliana_tair.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/fastq_to_tabbed.pl  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/gen_occ_lookup.pl  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_s_cerevisiae.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_d_melanogaster.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/colorize_fasta.pl  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/make_hg19.sh  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/scripts/infer_fraglen.pl  
+#13 2.191   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-l  
+#13 2.288  extracting: bowtie-1.3.1-linux-x86_64/VERSION  
+#13 2.288   inflating: bowtie-1.3.1-linux-x86_64/bowtie-align-s  
+#13 2.382   inflating: bowtie-1.3.1-linux-x86_64/bowtie-build-l  
+#13 2.457   inflating: bowtie-1.3.1-linux-x86_64/bowtie-inspect  
+#13 2.458   inflating: bowtie-1.3.1-linux-x86_64/bowtie  
+#13 2.458   inflating: bowtie-1.3.1-linux-x86_64/MANUAL.markdown  
+#13 2.458   inflating: bowtie-1.3.1-linux-x86_64/TUTORIAL  
+#13 DONE 6.5s
+
+#14 [10/21] COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+#14 DONE 2.0s
+
+#15 [11/21] RUN unzip bowtie-1.1.2-linux-x86_64.zip     && rm bowtie-1.1.2-linux-x86_64.zip
+#15 1.427 Archive:  bowtie-1.1.2-linux-x86_64.zip
+#15 1.427    creating: bowtie-1.1.2/
+#15 1.427    creating: bowtie-1.1.2/scripts/
+#15 1.427   inflating: bowtie-1.1.2/scripts/build_test.sh  
+#15 1.427   inflating: bowtie-1.1.2/scripts/make_a_thaliana_tair.sh  
+#15 1.427   inflating: bowtie-1.1.2/scripts/make_b_taurus_UMD3.sh  
+#15 1.427   inflating: bowtie-1.1.2/scripts/make_canFam2.sh  
+#15 1.427   inflating: bowtie-1.1.2/scripts/make_c_elegans.sh  
+#15 1.427   inflating: bowtie-1.1.2/scripts/make_d_melanogaster.sh  
+#15 1.427   inflating: bowtie-1.1.2/scripts/make_e_coli.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_galGal3.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_hg18.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_hg19.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_h_sapiens_ncbi36.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_h_sapiens_ncbi37.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_mm8.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_mm9.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_m_musculus_ncbi37.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_rn4.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/make_s_cerevisiae.sh  
+#15 1.428   inflating: bowtie-1.1.2/scripts/best_verify.pl  
+#15 1.428   inflating: bowtie-1.1.2/scripts/bs_mapability.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/colorize_fasta.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/colorize_fastq.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/convert_quals.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/fastq_to_tabbed.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/gen_2b_occ_lookup.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/gen_dnamasks2colormask.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/gen_occ_lookup.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/gen_solqual_lookup.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/infer_fraglen.pl  
+#15 1.429   inflating: bowtie-1.1.2/scripts/mapability.pl  
+#15 1.430   inflating: bowtie-1.1.2/scripts/pe_verify.pl  
+#15 1.430   inflating: bowtie-1.1.2/scripts/reconcile_alignments_pe.pl  
+#15 1.430   inflating: bowtie-1.1.2/scripts/reconcile_alignments.pl  
+#15 1.431    creating: bowtie-1.1.2/indexes/
+#15 1.431   inflating: bowtie-1.1.2/indexes/e_coli.1.ebwt  
+#15 1.443   inflating: bowtie-1.1.2/indexes/e_coli.2.ebwt  
+#15 1.448   inflating: bowtie-1.1.2/indexes/e_coli.3.ebwt  
+#15 1.448   inflating: bowtie-1.1.2/indexes/e_coli.4.ebwt  
+#15 1.457   inflating: bowtie-1.1.2/indexes/e_coli.README  
+#15 1.457   inflating: bowtie-1.1.2/indexes/e_coli.rev.1.ebwt  
+#15 1.469   inflating: bowtie-1.1.2/indexes/e_coli.rev.2.ebwt  
+#15 1.475    creating: bowtie-1.1.2/genomes/
+#15 1.475   inflating: bowtie-1.1.2/genomes/NC_008253.fna  
+#15 1.510    creating: bowtie-1.1.2/reads/
+#15 1.510   inflating: bowtie-1.1.2/reads/e_coli_1000.fa  
+#15 1.510   inflating: bowtie-1.1.2/reads/e_coli_1000.fq  
+#15 1.511   inflating: bowtie-1.1.2/reads/e_coli_1000.raw  
+#15 1.511   inflating: bowtie-1.1.2/reads/e_coli_1000_1.fa  
+#15 1.512   inflating: bowtie-1.1.2/reads/e_coli_1000_1.fq  
+#15 1.512   inflating: bowtie-1.1.2/reads/e_coli_1000_2.fa  
+#15 1.512   inflating: bowtie-1.1.2/reads/e_coli_1000_2.fq  
+#15 1.513   inflating: bowtie-1.1.2/reads/e_coli_10000snp.fa  
+#15 1.516   inflating: bowtie-1.1.2/reads/e_coli_10000snp.fq  
+#15 1.520    creating: bowtie-1.1.2/SeqAn-1.1/
+#15 1.520   inflating: bowtie-1.1.2/bowtie     
+#15 1.520   inflating: bowtie-1.1.2/bowtie-build  
+#15 1.520   inflating: bowtie-1.1.2/bowtie-inspect  
+#15 1.520    creating: bowtie-1.1.2/doc/
+#15 1.520   inflating: bowtie-1.1.2/doc/manual.html  
+#15 1.521   inflating: bowtie-1.1.2/doc/README  
+#15 1.521   inflating: bowtie-1.1.2/doc/style.css  
+#15 1.521   inflating: bowtie-1.1.2/AUTHORS    
+#15 1.521   inflating: bowtie-1.1.2/LICENSE    
+#15 1.521   inflating: bowtie-1.1.2/NEWS       
+#15 1.522   inflating: bowtie-1.1.2/MANUAL     
+#15 1.522   inflating: bowtie-1.1.2/MANUAL.markdown  
+#15 1.523   inflating: bowtie-1.1.2/TUTORIAL   
+#15 1.523  extracting: bowtie-1.1.2/VERSION    
+#15 1.523   inflating: bowtie-1.1.2/bowtie-build-s  
+#15 1.526   inflating: bowtie-1.1.2/bowtie-build-l  
+#15 1.529   inflating: bowtie-1.1.2/bowtie-align-s  
+#15 1.535   inflating: bowtie-1.1.2/bowtie-align-l  
+#15 1.541   inflating: bowtie-1.1.2/bowtie-inspect-s  
+#15 1.543   inflating: bowtie-1.1.2/bowtie-inspect-l  
+#15 1.545   inflating: bowtie-1.1.2/bowtie-build-s-debug  
+#15 1.564   inflating: bowtie-1.1.2/bowtie-build-l-debug  
+#15 1.583   inflating: bowtie-1.1.2/bowtie-align-s-debug  
+#15 1.628   inflating: bowtie-1.1.2/bowtie-align-l-debug  
+#15 1.673   inflating: bowtie-1.1.2/bowtie-inspect-s-debug  
+#15 1.685   inflating: bowtie-1.1.2/bowtie-inspect-l-debug  
+#15 DONE 4.0s
+
+#16 [12/21] COPY bowtie2-2.5.4-linux-x86_64.zip bowtie2-2.5.4-linux-x86_64.zip
+#16 DONE 2.8s
+
+#17 [13/21] RUN unzip bowtie2-2.5.4-linux-x86_64.zip     && rm bowtie2-2.5.4-linux-x86_64.zip
+#17 1.417 Archive:  bowtie2-2.5.4-linux-x86_64.zip
+#17 1.417    creating: bowtie2-2.5.4-linux-x86_64/
+#17 1.417   inflating: bowtie2-2.5.4-linux-x86_64/MANUAL  
+#17 1.418   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-align-s-debug  
+#17 1.702  extracting: bowtie2-2.5.4-linux-x86_64/BOWTIE2_VERSION  
+#17 1.702    creating: bowtie2-2.5.4-linux-x86_64/doc/
+#17 1.702   inflating: bowtie2-2.5.4-linux-x86_64/doc/manual.html  
+#17 1.703   inflating: bowtie2-2.5.4-linux-x86_64/doc/style.css  
+#17 1.703   inflating: bowtie2-2.5.4-linux-x86_64/doc/README  
+#17 1.703   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-inspect  
+#17 1.703   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-inspect-s-debug  
+#17 1.818   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-build-l  
+#17 1.954    creating: bowtie2-2.5.4-linux-x86_64/scripts/
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_h_sapiens_ncbi36.sh  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_mm9.sh  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_c_elegans.sh  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/gen_2b_occ_lookup.pl  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_h_sapiens_ncbi37.sh  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_hg19.sh  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/infer_fraglen.pl  
+#17 1.954   inflating: bowtie2-2.5.4-linux-x86_64/scripts/bowtie2-hbb.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_s_cerevisiae.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_rn4.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/gen_occ_lookup.pl  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_m_musculus_ncbi37.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/gen_solqual_lookup.pl  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/convert_quals.pl  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_a_thaliana_tair.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_canFam2.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_mm10.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_b_taurus_UMD3.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_hg18.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_e_coli.sh  
+#17 1.955   inflating: bowtie2-2.5.4-linux-x86_64/scripts/make_d_melanogaster.sh  
+#17 1.956   inflating: bowtie2-2.5.4-linux-x86_64/MANUAL.markdown  
+#17 1.957   inflating: bowtie2-2.5.4-linux-x86_64/AUTHORS  
+#17 1.957   inflating: bowtie2-2.5.4-linux-x86_64/TUTORIAL  
+#17 1.957    creating: bowtie2-2.5.4-linux-x86_64/example/
+#17 1.957    creating: bowtie2-2.5.4-linux-x86_64/example/reference/
+#17 1.957   inflating: bowtie2-2.5.4-linux-x86_64/example/reference/lambda_virus.fa  
+#17 1.957    creating: bowtie2-2.5.4-linux-x86_64/example/index/
+#17 1.957   inflating: bowtie2-2.5.4-linux-x86_64/example/index/lambda_virus.4.bt2  
+#17 1.957   inflating: bowtie2-2.5.4-linux-x86_64/example/index/lambda_virus.3.bt2  
+#17 1.958   inflating: bowtie2-2.5.4-linux-x86_64/example/index/lambda_virus.rev.1.bt2  
+#17 1.974   inflating: bowtie2-2.5.4-linux-x86_64/example/index/lambda_virus.rev.2.bt2  
+#17 1.974   inflating: bowtie2-2.5.4-linux-x86_64/example/index/lambda_virus.2.bt2  
+#17 1.974   inflating: bowtie2-2.5.4-linux-x86_64/example/index/lambda_virus.1.bt2  
+#17 1.990    creating: bowtie2-2.5.4-linux-x86_64/example/reads/
+#17 1.990   inflating: bowtie2-2.5.4-linux-x86_64/example/reads/reads_2.fq  
+#17 2.009   inflating: bowtie2-2.5.4-linux-x86_64/example/reads/longreads.fq  
+#17 2.041   inflating: bowtie2-2.5.4-linux-x86_64/example/reads/simulate.pl  
+#17 2.041   inflating: bowtie2-2.5.4-linux-x86_64/example/reads/combined_reads.bam  
+#17 2.069   inflating: bowtie2-2.5.4-linux-x86_64/example/reads/reads_1.fq  
+#17 2.087   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-inspect-l  
+#17 2.205   inflating: bowtie2-2.5.4-linux-x86_64/README.md  
+#17 2.205   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2  
+#17 2.205   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-align-l-debug  
+#17 2.489   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-build-s  
+#17 2.625   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-build-l-debug  
+#17 2.781   inflating: bowtie2-2.5.4-linux-x86_64/NEWS  
+#17 2.781   inflating: bowtie2-2.5.4-linux-x86_64/LICENSE  
+#17 2.781   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-inspect-l-debug  
+#17 2.896   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-align-l  
+#17 3.112   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-align-s  
+#17 3.328   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-build  
+#17 3.328   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-build-s-debug  
+#17 3.484   inflating: bowtie2-2.5.4-linux-x86_64/bowtie2-inspect-s  
+#17 DONE 9.9s
+
+#18 [14/21] COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+#18 DONE 1.7s
+
+#19 [15/21] RUN tar zxvf Bismark.0.22.3.tar.gz     && rm Bismark.0.22.3.tar.gz
+#19 1.686 Bismark-0.22.3/
+#19 1.686 Bismark-0.22.3/.travis.yml
+#19 1.686 Bismark-0.22.3/Bismark_alignment_modes.pdf
+#19 1.686 Bismark-0.22.3/CHANGELOG.md
+#19 1.688 Bismark-0.22.3/Docs/
+#19 1.688 Bismark-0.22.3/Docs/Bismark_User_Guide.html
+#19 1.688 Bismark-0.22.3/Docs/FAQ.md
+#19 1.688 Bismark-0.22.3/Docs/Images/
+#19 1.688 Bismark-0.22.3/Docs/Images/Bismark_Bowtie2_HISAT2.png
+#19 1.690 Bismark-0.22.3/Docs/Images/PBAT_SE_M-bias.jpg
+#19 1.691 Bismark-0.22.3/Docs/Images/PE_M-bias.jpg
+#19 1.691 Bismark-0.22.3/Docs/Images/bioinformatics_logo.png
+#19 1.691 Bismark-0.22.3/Docs/Images/bioinformatics_logo.svg
+#19 1.691 Bismark-0.22.3/Docs/Images/bismark.png
+#19 1.691 Bismark-0.22.3/Docs/Images/bismark_summary_report.html
+#19 1.693 Bismark-0.22.3/Docs/Images/bismark_summary_report.txt
+#19 1.693 Bismark-0.22.3/Docs/Images/methylation_concordance.png
+#19 1.695 Bismark-0.22.3/Docs/Images/nucleocoverage.png
+#19 1.696 Bismark-0.22.3/Docs/Images/summary.png
+#19 1.697 Bismark-0.22.3/Docs/README.md
+#19 1.697 Bismark-0.22.3/Docs/make_docs.pl
+#19 1.697 Bismark-0.22.3/NOMe_filtering
+#19 1.697 Bismark-0.22.3/README.md
+#19 1.697 Bismark-0.22.3/_config.yml
+#19 1.697 Bismark-0.22.3/bam2nuc
+#19 1.697 Bismark-0.22.3/bismark
+#19 1.699 Bismark-0.22.3/bismark2bedGraph
+#19 1.699 Bismark-0.22.3/bismark2report
+#19 1.699 Bismark-0.22.3/bismark2summary
+#19 1.700 Bismark-0.22.3/bismark_genome_preparation
+#19 1.700 Bismark-0.22.3/bismark_methylation_extractor
+#19 1.701 Bismark-0.22.3/copy_bismark_files_for_release.pl
+#19 1.701 Bismark-0.22.3/coverage2cytosine
+#19 1.701 Bismark-0.22.3/deduplicate_bismark
+#19 1.701 Bismark-0.22.3/filter_non_conversion
+#19 1.701 Bismark-0.22.3/license.txt
+#19 1.702 Bismark-0.22.3/methylation_consistency
+#19 1.702 Bismark-0.22.3/plotly/
+#19 1.702 Bismark-0.22.3/plotly/Bismark_Alignment_Stats_Summary.png
+#19 1.703 Bismark-0.22.3/plotly/bioinf.logo
+#19 1.703 Bismark-0.22.3/plotly/bismark.logo
+#19 1.703 Bismark-0.22.3/plotly/bismark_bt2_PE_report.html
+#19 1.720 Bismark-0.22.3/plotly/bismark_summary_RRBS.html
+#19 1.737 Bismark-0.22.3/plotly/bismark_summary_WGBS.html
+#19 1.754 Bismark-0.22.3/plotly/bismark_summary_single_cells.html
+#19 1.779 Bismark-0.22.3/plotly/bismark_summary_single_cells.txt
+#19 1.780 Bismark-0.22.3/plotly/plot.ly
+#19 1.797 Bismark-0.22.3/plotly/plotly_template.tpl
+#19 1.797 Bismark-0.22.3/test_data.fastq
+#19 1.808 Bismark-0.22.3/travis_files/
+#19 1.808 Bismark-0.22.3/travis_files/NC_010473.fa.gz
+#19 1.815 Bismark-0.22.3/travis_files/test_R1.fastq.gz
+#19 1.816 Bismark-0.22.3/travis_files/test_R2.fastq.gz
+#19 DONE 4.3s
+
+#20 [16/21] COPY chromap-0.3.2.tar.gz chromap-0.3.2.tar.gz
+#20 DONE 2.3s
+
+#21 [17/21] RUN tar zxvf chromap-0.3.2.tar.gz     && cd chromap-0.3.2     && make     && cp chromap /usr/local/bin/     && rm -rf /opt/chromap-0.3.2 /opt/chromap-0.3.2.tar.gz
+#21 1.434 chromap-0.3.2/
+#21 1.434 chromap-0.3.2/.github/
+#21 1.434 chromap-0.3.2/.github/ISSUE_TEMPLATE/
+#21 1.434 chromap-0.3.2/.github/ISSUE_TEMPLATE/bug_report.md
+#21 1.434 chromap-0.3.2/.github/workflows/
+#21 1.434 chromap-0.3.2/.github/workflows/ci.yml
+#21 1.434 chromap-0.3.2/LICENSE
+#21 1.435 chromap-0.3.2/Makefile
+#21 1.435 chromap-0.3.2/README.md
+#21 1.435 chromap-0.3.2/chromap.1
+#21 1.435 chromap-0.3.2/docs/
+#21 1.435 chromap-0.3.2/docs/_config.yml
+#21 1.435 chromap-0.3.2/docs/chromap.html
+#21 1.435 chromap-0.3.2/docs/index.md
+#21 1.435 chromap-0.3.2/src/
+#21 1.435 chromap-0.3.2/src/alignment.cc
+#21 1.435 chromap-0.3.2/src/alignment.h
+#21 1.435 chromap-0.3.2/src/barcode_translator.h
+#21 1.435 chromap-0.3.2/src/bed_mapping.h
+#21 1.435 chromap-0.3.2/src/candidate.h
+#21 1.435 chromap-0.3.2/src/candidate_position_generating_config.h
+#21 1.436 chromap-0.3.2/src/candidate_processor.cc
+#21 1.436 chromap-0.3.2/src/candidate_processor.h
+#21 1.436 chromap-0.3.2/src/chromap.cc
+#21 1.436 chromap-0.3.2/src/chromap.h
+#21 1.436 chromap-0.3.2/src/chromap_driver.cc
+#21 1.437 chromap-0.3.2/src/chromap_driver.h
+#21 1.437 chromap-0.3.2/src/cxxopts.hpp
+#21 1.437 chromap-0.3.2/src/draft_mapping.h
+#21 1.437 chromap-0.3.2/src/draft_mapping_generator.cc
+#21 1.437 chromap-0.3.2/src/draft_mapping_generator.h
+#21 1.437 chromap-0.3.2/src/feature_barcode_matrix.cc
+#21 1.437 chromap-0.3.2/src/feature_barcode_matrix.h
+#21 1.437 chromap-0.3.2/src/feature_barcode_matrix_writer.h
+#21 1.437 chromap-0.3.2/src/hit_utils.h
+#21 1.437 chromap-0.3.2/src/index.cc
+#21 1.437 chromap-0.3.2/src/index.h
+#21 1.437 chromap-0.3.2/src/index_parameters.h
+#21 1.437 chromap-0.3.2/src/index_utils.h
+#21 1.438 chromap-0.3.2/src/khash.h
+#21 1.438 chromap-0.3.2/src/kseq.h
+#21 1.438 chromap-0.3.2/src/ksw.cc
+#21 1.438 chromap-0.3.2/src/ksw.h
+#21 1.438 chromap-0.3.2/src/mapping.h
+#21 1.438 chromap-0.3.2/src/mapping_generator.cc
+#21 1.438 chromap-0.3.2/src/mapping_generator.h
+#21 1.438 chromap-0.3.2/src/mapping_in_memory.h
+#21 1.438 chromap-0.3.2/src/mapping_metadata.h
+#21 1.438 chromap-0.3.2/src/mapping_parameters.h
+#21 1.438 chromap-0.3.2/src/mapping_processor.h
+#21 1.438 chromap-0.3.2/src/mapping_writer.cc
+#21 1.438 chromap-0.3.2/src/mapping_writer.h
+#21 1.438 chromap-0.3.2/src/minimizer.h
+#21 1.439 chromap-0.3.2/src/minimizer_generator.cc
+#21 1.439 chromap-0.3.2/src/minimizer_generator.h
+#21 1.439 chromap-0.3.2/src/mmcache.hpp
+#21 1.439 chromap-0.3.2/src/paf_mapping.h
+#21 1.439 chromap-0.3.2/src/paired_end_mapping_metadata.h
+#21 1.439 chromap-0.3.2/src/pairs_mapping.h
+#21 1.439 chromap-0.3.2/src/sam_mapping.h
+#21 1.439 chromap-0.3.2/src/sequence_batch.cc
+#21 1.439 chromap-0.3.2/src/sequence_batch.h
+#21 1.439 chromap-0.3.2/src/sequence_effective_range.h
+#21 1.439 chromap-0.3.2/src/strand.h
+#21 1.439 chromap-0.3.2/src/summary_metadata.h
+#21 1.439 chromap-0.3.2/src/temp_mapping.h
+#21 1.439 chromap-0.3.2/src/utils.h
+#21 1.439 chromap-0.3.2/test/
+#21 1.439 chromap-0.3.2/test/read1.fq
+#21 1.439 chromap-0.3.2/test/read2.fq
+#21 1.440 chromap-0.3.2/test/ref.fa
+#21 1.442 mkdir -p objs
+#21 1.444 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/sequence_batch.cc -o objs/sequence_batch.o
+#21 2.056 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/index.cc -o objs/index.o
+#21 2.474 In file included from src/index_utils.h:6,
+#21 2.474                  from src/index.h:11,
+#21 2.474                  from src/index.cc:1:
+#21 2.474 src/index_utils.h: In function ‘void kh_load_k64(kh_k64_t*, FILE*)’:
+#21 2.474 src/khash.h:360:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.474   360 |     fread(&(h->n_buckets), sizeof(khint_t), 1, fp);\
+#21 2.474       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.474 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.474   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~~
+#21 2.474 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.474   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~
+#21 2.474 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.474    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.474       | ^~~~~~~~~~
+#21 2.474 src/khash.h:361:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.474   361 |     fread(&(h->size), sizeof(khint_t), 1, fp);\
+#21 2.474       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.474 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.474   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~~
+#21 2.474 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.474   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~
+#21 2.474 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.474    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.474       | ^~~~~~~~~~
+#21 2.474 src/khash.h:362:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.474   362 |     fread(&(h->n_occupied), sizeof(khint_t), 1, fp);\
+#21 2.474       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.474 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.474   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~~
+#21 2.474 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.474   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~
+#21 2.474 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.474    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.474       | ^~~~~~~~~~
+#21 2.474 src/khash.h:363:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.474   363 |     fread(&(h->upper_bound), sizeof(khint_t), 1, fp);\
+#21 2.474       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.474 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.474   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~~
+#21 2.474 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.474   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~
+#21 2.474 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.474    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.474       | ^~~~~~~~~~
+#21 2.474 src/khash.h:367:12: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.474   367 |       fread(h->flags, sizeof(khint32_t), __ac_fsize(h->n_buckets), fp);\
+#21 2.474       |       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.474 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.474   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~~
+#21 2.474 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.474   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~
+#21 2.474 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.474    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.474       | ^~~~~~~~~~
+#21 2.474 src/khash.h:369:12: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.474   369 |       fread(h->keys, sizeof(khkey_t), h->n_buckets, fp);\
+#21 2.474       |       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.474 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.474   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~~
+#21 2.474 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.474   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.474       |         ^~~~~~~~~~~
+#21 2.474 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.474    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.474       | ^~~~~~~~~~
+#21 2.475 src/khash.h:371:12: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 2.475   371 |       fread(h->vals, sizeof(khval_t), h->n_buckets, fp);\
+#21 2.475       |       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 2.475 src/khash.h:394:9: note: in expansion of macro ‘__KHASH_IMPL’
+#21 2.475   394 |         __KHASH_IMPL(name, SCOPE, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.475       |         ^~~~~~~~~~~~
+#21 2.475 src/khash.h:397:9: note: in expansion of macro ‘KHASH_INIT2’
+#21 2.475   397 |         KHASH_INIT2(name, static kh_inline klib_unused, khkey_t, khval_t, kh_is_map, __hash_func, __hash_equal)
+#21 2.475       |         ^~~~~~~~~~~
+#21 2.475 src/index_utils.h:15:1: note: in expansion of macro ‘KHASH_INIT’
+#21 2.475    15 | KHASH_INIT(/*name=*/k64, /*khkey_t=*/uint64_t, /*khval_t=*/uint64_t,
+#21 2.475       | ^~~~~~~~~~
+#21 3.188 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/minimizer_generator.cc -o objs/minimizer_generator.o
+#21 3.431 src/minimizer_generator.cc: In member function ‘void chromap::MinimizerGenerator::GenerateMinimizers(const chromap::SequenceBatch&, uint32_t, std::vector<chromap::Minimizer>&) const’:
+#21 3.431 src/minimizer_generator.cc:22:9: warning: ‘void* memset(void*, int, size_t)’ writing to an object of type ‘struct std::pair<long unsigned int, long unsigned int>’ with no trivial copy-assignment [-Wclass-memaccess]
+#21 3.431    22 |   memset(buffer, 0xff, window_size_ * 16);
+#21 3.431       |   ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 3.431 In file included from /usr/include/c++/11/bits/stl_algobase.h:64,
+#21 3.431                  from /usr/include/c++/11/vector:60,
+#21 3.431                  from src/minimizer_generator.h:6,
+#21 3.431                  from src/minimizer_generator.cc:1:
+#21 3.431 /usr/include/c++/11/bits/stl_pair.h:211:12: note: ‘struct std::pair<long unsigned int, long unsigned int>’ declared here
+#21 3.431   211 |     struct pair
+#21 3.431       |            ^~~~
+#21 3.571 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/candidate_processor.cc -o objs/candidate_processor.o
+#21 4.112 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/alignment.cc -o objs/alignment.o
+#21 4.752 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/feature_barcode_matrix.cc -o objs/feature_barcode_matrix.o
+#21 5.886 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/ksw.cc -o objs/ksw.o
+#21 6.598 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/draft_mapping_generator.cc -o objs/draft_mapping_generator.o
+#21 7.256 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/mapping_generator.cc -o objs/mapping_generator.o
+#21 8.484 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/mapping_writer.cc -o objs/mapping_writer.o
+#21 10.42 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/chromap.cc -o objs/chromap.o
+#21 14.86 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 -c src/chromap_driver.cc -o objs/chromap_driver.o
+#21 17.63 In file included from src/mapping_processor.h:19,
+#21 17.63                  from src/chromap.h:27,
+#21 17.63                  from src/chromap_driver.cc:10:
+#21 17.63 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::PAFMapping]’:
+#21 17.63 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 17.63    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 17.63       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 17.63 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::PAFMapping]’:
+#21 17.63 src/temp_mapping.h:138:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 17.63   138 |         fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 17.63       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 17.97 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::SAMMapping]’:
+#21 17.97 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 17.97    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 17.97       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 17.97 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::SAMMapping]’:
+#21 17.97 src/temp_mapping.h:222:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 17.97   222 |         fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 17.97       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.00 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::MappingWithBarcode]’:
+#21 18.00 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.00    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.00       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.00 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::MappingWithBarcode]’:
+#21 18.00 src/temp_mapping.h:76:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.00    76 |         fread(mappings.data(), sizeof(MappingRecord),
+#21 18.00       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.00    77 |               num_mappings_to_load_on_current_rid, file);
+#21 18.00       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.00 src/temp_mapping.h:87:16: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.00    87 |           fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.00       |           ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.03 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::MappingWithoutBarcode]’:
+#21 18.03 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.03    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.03       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.03 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::MappingWithoutBarcode]’:
+#21 18.03 src/temp_mapping.h:76:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.03    76 |         fread(mappings.data(), sizeof(MappingRecord),
+#21 18.03       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.03    77 |               num_mappings_to_load_on_current_rid, file);
+#21 18.03       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.03 src/temp_mapping.h:87:16: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.03    87 |           fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.03       |           ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.07 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::PairedPAFMapping]’:
+#21 18.07 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.07    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.07       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.07 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::PairedPAFMapping]’:
+#21 18.07 src/temp_mapping.h:180:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.07   180 |         fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.07       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.11 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::PairsMapping]’:
+#21 18.11 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.11    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.11       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.11 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::PairsMapping]’:
+#21 18.11 src/temp_mapping.h:264:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.11   264 |         fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.11       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.14 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::PairedEndMappingWithBarcode]’:
+#21 18.14 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.14    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.14       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.14 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::PairedEndMappingWithBarcode]’:
+#21 18.14 src/temp_mapping.h:76:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.14    76 |         fread(mappings.data(), sizeof(MappingRecord),
+#21 18.14       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.14    77 |               num_mappings_to_load_on_current_rid, file);
+#21 18.14       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.14 src/temp_mapping.h:87:16: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.14    87 |           fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.14       |           ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.17 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::InitializeTempMappingLoading(uint32_t) [with MappingRecord = chromap::PairedEndMappingWithoutBarcode]’:
+#21 18.17 src/temp_mapping.h:50:10: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.17    50 |     fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.17       |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.17 src/temp_mapping.h: In member function ‘void chromap::TempMappingFileHandle<MappingRecord>::LoadTempMappingBlock(uint32_t) [with MappingRecord = chromap::PairedEndMappingWithoutBarcode]’:
+#21 18.17 src/temp_mapping.h:76:14: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.17    76 |         fread(mappings.data(), sizeof(MappingRecord),
+#21 18.17       |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.17    77 |               num_mappings_to_load_on_current_rid, file);
+#21 18.17       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.17 src/temp_mapping.h:87:16: warning: ignoring return value of ‘size_t fread(void*, size_t, size_t, FILE*)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+#21 18.17    87 |           fread(&num_mappings_on_current_rid, sizeof(size_t), 1, file);
+#21 18.17       |           ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#21 18.23 src/chromap_driver.cc: At global scope:
+#21 18.23 src/chromap_driver.cc:161:6: warning: ‘void chromap::{anonymous}::AddPeakOptions(cxxopts::Options&)’ defined but not used [-Wunused-function]
+#21 18.23   161 | void AddPeakOptions(cxxopts::Options &options) {
+#21 18.23       |      ^~~~~~~~~~~~~~
+#21 40.43 g++ -std=c++11 -Wall -O3 -fopenmp -msse4.1 objs/sequence_batch.o objs/index.o objs/minimizer_generator.o objs/candidate_processor.o objs/alignment.o objs/feature_barcode_matrix.o objs/ksw.o objs/draft_mapping_generator.o objs/mapping_generator.o objs/mapping_writer.o objs/chromap.o objs/chromap_driver.o -o chromap -lm -lz
+#21 DONE 41.1s
+
+#22 [18/21] COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
+#22 DONE 2.2s
+
+#23 [19/21] RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2     && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/     && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30
+#23 1.298 minimap2-2.30_x64-linux/
+#23 1.298 minimap2-2.30_x64-linux/cookbook.md
+#23 1.298 minimap2-2.30_x64-linux/paftools.js
+#23 1.299 minimap2-2.30_x64-linux/NEWS.md
+#23 1.299 minimap2-2.30_x64-linux/README.md
+#23 1.299 minimap2-2.30_x64-linux/k8
+#23 1.494 minimap2-2.30_x64-linux/FAQ.md
+#23 1.494 minimap2-2.30_x64-linux/minimap2.1
+#23 1.494 minimap2-2.30_x64-linux/LICENSE.txt
+#23 1.495 minimap2-2.30_x64-linux/minimap2
+#23 1.527 minimap2-2.30_x64-linux/README-js.md
+#23 DONE 3.0s
+
+#24 [20/21] COPY script/build-index.sh scripts/build-index.sh
+#24 DONE 2.0s
+
+#25 [21/21] WORKDIR /home/ubuntu
+#25 DONE 1.7s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 6.3s done
+#26 writing image sha256:3a9c7697c39b6c8ff15953612b60cf441dac5bd8a575cce100602bb1ed8661f2 0.0s done
+#26 naming to docker.io/rnakato/mapping:2026.06 0.1s done
+#26 DONE 6.7s
+The push refers to repository [docker.io/rnakato/mapping]
+5f70bf18a086: Preparing
+c2ce12776434: Preparing
+21cb52b0449b: Preparing
+6fc1b0ab50a8: Preparing
+878d5bc46121: Preparing
+6bb599bbf33f: Preparing
+7630673c7122: Preparing
+6e69b10a307e: Preparing
+68d0e256fc0e: Preparing
+d1d3eea3fb09: Preparing
+edf2333344d8: Preparing
+fd4cd8bd20fd: Preparing
+5c02d2a87ddb: Preparing
+b3c782d023fc: Preparing
+4c0d13796719: Preparing
+835049f89b0c: Preparing
+fd5897475a83: Preparing
+7c00fd6199e4: Preparing
+0d23c0725e28: Preparing
+6e69b10a307e: Waiting
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+1c90900b74e5: Preparing
+68d0e256fc0e: Waiting
+5f70bf18a086: Preparing
+053146f54243: Preparing
+d1d3eea3fb09: Waiting
+edf2333344d8: Waiting
+942e891ca580: Preparing
+5f70bf18a086: Preparing
+3e0259eab71a: Preparing
+fd4cd8bd20fd: Waiting
+6f5cee74fb30: Preparing
+5c02d2a87ddb: Waiting
+3af2fc4541de: Preparing
+b3c782d023fc: Waiting
+4c0d13796719: Waiting
+835049f89b0c: Waiting
+fd5897475a83: Waiting
+01af71cfc316: Preparing
+7c00fd6199e4: Waiting
+8bba68e76219: Preparing
+0d23c0725e28: Waiting
+1c90900b74e5: Waiting
+053146f54243: Waiting
+942e891ca580: Waiting
+3e0259eab71a: Waiting
+6f5cee74fb30: Waiting
+3af2fc4541de: Waiting
+01af71cfc316: Waiting
+8bba68e76219: Waiting
+6bb599bbf33f: Waiting
+7630673c7122: Waiting
+5f70bf18a086: Layer already exists
+c2ce12776434: Pushed
+6bb599bbf33f: Pushed
+6fc1b0ab50a8: Pushed
+878d5bc46121: Pushed
+21cb52b0449b: Pushed
+6e69b10a307e: Pushed
+7630673c7122: Pushed
+edf2333344d8: Pushed
+b3c782d023fc: Pushed
+4c0d13796719: Pushed
+fd4cd8bd20fd: Pushed
+5c02d2a87ddb: Pushed
+7c00fd6199e4: Pushed
+68d0e256fc0e: Pushed
+835049f89b0c: Pushed
+fd5897475a83: Pushed
+1c90900b74e5: Mounted from rnakato/database
+053146f54243: Mounted from rnakato/database
+0d23c0725e28: Pushed
+942e891ca580: Mounted from rnakato/database
+3e0259eab71a: Mounted from rnakato/database
+6f5cee74fb30: Mounted from rnakato/database
+3af2fc4541de: Mounted from rnakato/database
+01af71cfc316: Mounted from rnakato/database
+8bba68e76219: Mounted from rnakato/database
+d1d3eea3fb09: Pushed
+2026.06: digest: sha256:3c0c086ec2b28e97983f58f46fc2d5e022d6ae1a00d180614cee147be2c54c56 size: 6825
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.41kB 0.0s done
+#1 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/rnakato/database:2026.06
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.5s
+
+#4 [ 1/21] FROM docker.io/rnakato/database:2026.06
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 173.65MB 0.6s done
+#5 DONE 0.9s
+
+#6 [17/21] RUN tar zxvf chromap-0.3.2.tar.gz     && cd chromap-0.3.2     && make     && cp chromap /usr/local/bin/     && rm -rf /opt/chromap-0.3.2 /opt/chromap-0.3.2.tar.gz
+#6 CACHED
+
+#7 [20/21] COPY script/build-index.sh scripts/build-index.sh
+#7 CACHED
+
+#8 [ 8/21] COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
+#8 CACHED
+
+#9 [18/21] COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
+#9 CACHED
+
+#10 [19/21] RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2     && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/     && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30
+#10 CACHED
+
+#11 [14/21] COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+#11 CACHED
+
+#12 [10/21] COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+#12 CACHED
+
+#13 [12/21] COPY bowtie2-2.5.4-linux-x86_64.zip bowtie2-2.5.4-linux-x86_64.zip
+#13 CACHED
+
+#14 [ 2/21] WORKDIR /opt
+#14 CACHED
+
+#15 [13/21] RUN unzip bowtie2-2.5.4-linux-x86_64.zip     && rm bowtie2-2.5.4-linux-x86_64.zip
+#15 CACHED
+
+#16 [ 9/21] RUN unzip bowtie-1.3.1-linux-x86_64.zip     && rm bowtie-1.3.1-linux-x86_64.zip
+#16 CACHED
+
+#17 [16/21] COPY chromap-0.3.2.tar.gz chromap-0.3.2.tar.gz
+#17 CACHED
+
+#18 [ 3/21] RUN apt-get update     && apt-get install -y --no-install-recommends     libbz2-dev     libz-dev     libncurses-dev     pigz     unzip     && apt-get clean     && rm -rf /var/lib/apt/lists
+#18 CACHED
+
+#19 [15/21] RUN tar zxvf Bismark.0.22.3.tar.gz     && rm Bismark.0.22.3.tar.gz
+#19 CACHED
+
+#20 [ 7/21] RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2     && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#20 CACHED
+
+#21 [11/21] RUN unzip bowtie-1.1.2-linux-x86_64.zip     && rm bowtie-1.1.2-linux-x86_64.zip
+#21 CACHED
+
+#22 [ 6/21] COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#22 CACHED
+
+#23 [ 4/21] COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
+#23 CACHED
+
+#24 [ 5/21] RUN tar xvfj bwa-0.7.17.tar.bz2     && cd bwa-0.7.17     && sed -i '33d' rle.h     && make     && rm /opt/bwa-0.7.17.tar.bz2
+#24 CACHED
+
+#25 [21/21] WORKDIR /home/ubuntu
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 writing image sha256:3a9c7697c39b6c8ff15953612b60cf441dac5bd8a575cce100602bb1ed8661f2 0.1s done
+#26 naming to docker.io/rnakato/mapping:latest
+#26 naming to docker.io/rnakato/mapping:latest 0.1s done
+#26 DONE 0.2s
+The push refers to repository [docker.io/rnakato/mapping]
+5f70bf18a086: Preparing
+c2ce12776434: Preparing
+21cb52b0449b: Preparing
+6fc1b0ab50a8: Preparing
+878d5bc46121: Preparing
+6bb599bbf33f: Preparing
+7630673c7122: Preparing
+6e69b10a307e: Preparing
+68d0e256fc0e: Preparing
+d1d3eea3fb09: Preparing
+edf2333344d8: Preparing
+fd4cd8bd20fd: Preparing
+5c02d2a87ddb: Preparing
+b3c782d023fc: Preparing
+4c0d13796719: Preparing
+835049f89b0c: Preparing
+fd5897475a83: Preparing
+7c00fd6199e4: Preparing
+0d23c0725e28: Preparing
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+1c90900b74e5: Preparing
+5f70bf18a086: Preparing
+053146f54243: Preparing
+942e891ca580: Preparing
+5f70bf18a086: Preparing
+3e0259eab71a: Preparing
+6f5cee74fb30: Preparing
+6bb599bbf33f: Waiting
+3af2fc4541de: Preparing
+7630673c7122: Waiting
+01af71cfc316: Preparing
+6e69b10a307e: Waiting
+fd4cd8bd20fd: Waiting
+5c02d2a87ddb: Waiting
+68d0e256fc0e: Waiting
+8bba68e76219: Preparing
+d1d3eea3fb09: Waiting
+edf2333344d8: Waiting
+053146f54243: Waiting
+b3c782d023fc: Waiting
+942e891ca580: Waiting
+3e0259eab71a: Waiting
+4c0d13796719: Waiting
+6f5cee74fb30: Waiting
+3af2fc4541de: Waiting
+835049f89b0c: Waiting
+01af71cfc316: Waiting
+fd5897475a83: Waiting
+8bba68e76219: Waiting
+7c00fd6199e4: Waiting
+1c90900b74e5: Waiting
+0d23c0725e28: Waiting
+878d5bc46121: Layer already exists
+c2ce12776434: Layer already exists
+5f70bf18a086: Layer already exists
+21cb52b0449b: Layer already exists
+6fc1b0ab50a8: Layer already exists
+6bb599bbf33f: Layer already exists
+7630673c7122: Layer already exists
+68d0e256fc0e: Layer already exists
+6e69b10a307e: Layer already exists
+d1d3eea3fb09: Layer already exists
+fd4cd8bd20fd: Layer already exists
+edf2333344d8: Layer already exists
+b3c782d023fc: Layer already exists
+5c02d2a87ddb: Layer already exists
+4c0d13796719: Layer already exists
+835049f89b0c: Layer already exists
+fd5897475a83: Layer already exists
+7c00fd6199e4: Layer already exists
+1c90900b74e5: Layer already exists
+0d23c0725e28: Layer already exists
+053146f54243: Layer already exists
+942e891ca580: Layer already exists
+6f5cee74fb30: Layer already exists
+3af2fc4541de: Layer already exists
+3e0259eab71a: Layer already exists
+01af71cfc316: Layer already exists
+8bba68e76219: Layer already exists
+latest: digest: sha256:3c0c086ec2b28e97983f58f46fc2d5e022d6ae1a00d180614cee147be2c54c56 size: 6825

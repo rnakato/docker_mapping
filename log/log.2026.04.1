@@ -1,0 +1,99 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.41kB done
+#1 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/rnakato/database:2026.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.5s
+
+#4 [ 1/21] FROM docker.io/rnakato/database:2026.04
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 1.47kB done
+#5 DONE 0.4s
+
+#6 [ 4/21] COPY bwa-0.7.17.tar.bz2 bwa-0.7.17.tar.bz2
+#6 CACHED
+
+#7 [11/21] RUN unzip bowtie-1.1.2-linux-x86_64.zip     && rm bowtie-1.1.2-linux-x86_64.zip
+#7 CACHED
+
+#8 [13/21] RUN unzip bowtie2-2.5.4-linux-x86_64.zip     && rm bowtie2-2.5.4-linux-x86_64.zip
+#8 CACHED
+
+#9 [ 6/21] COPY bwa-mem2-2.0pre2_x64-linux.tar.bz2 bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#9 CACHED
+
+#10 [ 7/21] RUN tar jxf bwa-mem2-2.0pre2_x64-linux.tar.bz2     && rm bwa-mem2-2.0pre2_x64-linux.tar.bz2
+#10 CACHED
+
+#11 [14/21] COPY Bismark.0.22.3.tar.gz Bismark.0.22.3.tar.gz
+#11 CACHED
+
+#12 [17/21] RUN tar zxvf chromap-0.3.2.tar.gz     && cd chromap-0.3.2     && make     && cp chromap /usr/local/bin/     && rm -rf /opt/chromap-0.3.2 /opt/chromap-0.3.2.tar.gz
+#12 CACHED
+
+#13 [ 8/21] COPY bowtie-1.3.1-linux-x86_64.zip bowtie-1.3.1-linux-x86_64.zip
+#13 CACHED
+
+#14 [ 3/21] RUN apt-get update     && apt-get install -y --no-install-recommends     libbz2-dev     libz-dev     libncurses-dev     pigz     unzip     && apt-get clean     && rm -rf /var/lib/apt/lists
+#14 CACHED
+
+#15 [ 5/21] RUN tar xvfj bwa-0.7.17.tar.bz2     && cd bwa-0.7.17     && sed -i '33d' rle.h     && make     && rm /opt/bwa-0.7.17.tar.bz2
+#15 CACHED
+
+#16 [ 9/21] RUN unzip bowtie-1.3.1-linux-x86_64.zip     && rm bowtie-1.3.1-linux-x86_64.zip
+#16 CACHED
+
+#17 [12/21] COPY bowtie2-2.5.4-linux-x86_64.zip bowtie2-2.5.4-linux-x86_64.zip
+#17 CACHED
+
+#18 [15/21] RUN tar zxvf Bismark.0.22.3.tar.gz     && rm Bismark.0.22.3.tar.gz
+#18 CACHED
+
+#19 [16/21] COPY chromap-0.3.2.tar.gz chromap-0.3.2.tar.gz
+#19 CACHED
+
+#20 [ 2/21] WORKDIR /opt
+#20 CACHED
+
+#21 [10/21] COPY bowtie-1.1.2-linux-x86_64.zip bowtie-1.1.2-linux-x86_64.zip
+#21 CACHED
+
+#22 [18/21] COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
+#22 CACHED
+
+#23 [19/21] RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2     && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/     && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30
+#23 1.220 minimap2-2.30_x64-linux/
+#23 1.220 minimap2-2.30_x64-linux/cookbook.md
+#23 1.220 minimap2-2.30_x64-linux/paftools.js
+#23 1.221 minimap2-2.30_x64-linux/NEWS.md
+#23 1.221 minimap2-2.30_x64-linux/README.md
+#23 1.221 minimap2-2.30_x64-linux/k8
+#23 1.418 minimap2-2.30_x64-linux/FAQ.md
+#23 1.418 minimap2-2.30_x64-linux/minimap2.1
+#23 1.418 minimap2-2.30_x64-linux/LICENSE.txt
+#23 1.418 minimap2-2.30_x64-linux/minimap2
+#23 1.451 minimap2-2.30_x64-linux/README-js.md
+#23 DONE 6.3s
+
+#24 [20/21] COPY script/build-index.sh scripts/build-index.sh
+#24 DONE 3.0s
+
+#25 [21/21] WORKDIR /home/ubuntu
+#25 DONE 2.8s
+
+#26 exporting to image
+#26 exporting layers
+#26 exporting layers 6.0s done
+#26 writing image sha256:e06a5589194849ba1655b5b654ef5ccda19b591001b8df582eff2f9f2292a8c9 0.1s done
+#26 naming to docker.io/rnakato/mapping:2026.04 0.1s done
+#26 DONE 6.5s

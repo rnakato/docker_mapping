@@ -3,9 +3,12 @@ cmdname=`basename $0`
 pwd=`pwd`
 function usage()
 {
-    echo "$cmdname [-p ncore] -a <program> <odir>" 1>&2
+    echo "$cmdname [-p ncore] [-a] <program> <odir>" 1>&2
     echo "   <program>: bowtie, bowtie-cs, bowtie2, bwa, chromap, bismark" 1>&2
     echo '   <Ddir>: Reference data directory' 1>&2
+    echo '   Options:' 1>&2
+    echo "      -a: use full genome fasta (genome_full.fa)"
+    echo "      -p <int>: Number of CPUs"
     echo "   Example:" 1>&2
     echo "         $cmdname bowtie2 Referencedata_hg38" 1>&2
 }
