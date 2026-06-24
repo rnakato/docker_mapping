@@ -60,7 +60,8 @@ RUN tar zxvf chromap-0.3.2.tar.gz \
 # minimap2 2.30
 COPY minimap2-2.30_x64-linux.tar.bz2 minimap2-2.30_x64-linux.tar.bz2
 RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2 \
-    && cp minimap2-2.30_x64-linux/minimap2 /usr/local/bin/ \
+    && cd minimap2-2.30_x64-linux \
+    && cp minimap2 paftools.js k8 /usr/local/bin/ \
     && rm -rf /opt/minimap2-2.30_x64-linux.tar.bz2 /opt/minimap2-2.30
 
 COPY script/build-index.sh scripts/build-index.sh

@@ -29,6 +29,7 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
   - Added ``download_Ecoli.sh`` and ``download_Lambdaphage.sh``.
   - Updated SRA Toolkit from 3.2.1 to v3.4.1
   - Updated SAMtools from 1.21 to 1.22.1
+  - Added ``paftools.js`` and ``k8`` in minimap2
   - Added ``isnumber.sh``
   - Updated Bioconductor 3.22 to 3.23
 
