@@ -66,7 +66,7 @@ RUN tar -jxvf minimap2-2.30_x64-linux.tar.bz2 \
 
 COPY script/build-index.sh scripts/build-index.sh
 
-ENV PATH=${PATH}:/opt:/opt/script:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.5.4-linux-x86_64:/opt/Bismark-0.22.3/:/opt/bwa-mem2-2.0pre2_x64-linux
+ENV PATH=${PATH}:/opt:/opt/bwa-0.7.17:/opt/bowtie-1.3.1-linux-x86_64:/opt/bowtie2-2.5.4-linux-x86_64:/opt/Bismark-0.22.3/:/opt/bwa-mem2-2.0pre2_x64-linux
 
 USER ubuntu
 WORKDIR /home/ubuntu
