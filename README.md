@@ -30,6 +30,7 @@ Repository of Docker image for mapping tools (based on Ubuntu 22.04)
   - Updated SRA Toolkit from 3.2.1 to v3.4.1
   - Updated SAMtools from 1.21 to 1.22.1
   - Added ``paftools.js`` and ``k8`` in minimap2
+  - Added [edirect](https://manpages.debian.org/testing/ncbi-entrez-direct/edirect.1.en.html)
   - Added ``isnumber.sh``
   - Updated Bioconductor 3.22 to 3.23
 
