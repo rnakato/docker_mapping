@@ -1,29 +1,57 @@
 # docker_mapping
 
-Repository of Docker image for mapping tools (based on Ubuntu 22.04)
+Repository of Docker image for mapping tools (based on Ubuntu 24.04)
 
-- Ubuntu 22.04
+- Ubuntu 24.04
 
-- Perl 5.36.0 (with plenv)
-- Python 3.10 (with Miniconda)
-    - MACS2-2.2.9.1
+- Perl 5.42.3 (with plenv)
+- Python 3.10 (with micromamba)
+    - MACS3 v3.0.4
 
-- R 4.x
+- R 4.6.1
+    - Bioconductor 3.23
     - BiocManager
     - Rstudio Desktop
     - Rstudio Server
 
 - BWA v0.7.17
+- BWA-MEM2 v2.3
 - Bowtie v1.3.1
+- Bowtie v1.1.2 (``/opt/bowtie-1.1.2``, not in ``PATH``)
 - Bowtie2 v2.5.4
 - chromap v0.3.2
 - Bismark v0.22.3
-- SAMtools v1.22.1
-- BEDtools v2.31.0
+- minimap2 v2.30
+- SAMtools v1.24
+- BEDtools v2.31.1
 - SRAtoolkit v3.4.1
 - OpenBLAS v0.3.24
 
 ## Changelog
+
+- 2026.09
+  - Changed the base image to ``rnakato/database:2026.09``, which moves from Ubuntu 22.04 to Ubuntu 24.04
+  - Following the base image update:
+    - Updated R from 4.6.0 to 4.6.1
+    - Updated Perl from 5.36.0 to 5.42.3
+    - Updated SAMtools from 1.22.1 to 1.24
+    - Updated BEDtools from 2.31.0 to 2.31.1
+    - Updated MACS2 v2.2.9.1 to MACS3 v3.0.4
+    - Updated edirect from 26.0 to 26.2
+    - Updated BWA-MEM2 from 2.0pre2 to 2.3.
+      - Note that ``bwa-mem2 version`` and the ``@PG`` line of the output SAM report ``2.2.1``, because upstream did not update the version string for the 2.3 release.
+
+- 2026.07
+  - Bug fix in ``parseGtftorefFlat.sh`` that did not create the refFlat file correctly when gene names contain spaces.
+  - Bug fix in ``download_genomedata.sh`` where the RepeatMasker.txt.gz was not downloaded successfully
+  - Added the repeatmasker file for the following genomes:
+    - Mus_musculus.GRCm39
+    - Rattus_norvegicus.GRCr8
+    - Danio_rerio.GRCz11
+    - Gallus_gallus.GRCg6a
+    - Xenopus_tropicalis.xenLae2
+    - Drosophila_melanogaster.BDGP6
+    - Caenorhabditis_elegans.WBcel235
 
 - 2026.06
   - Added ``download_Ecoli.sh`` and ``download_Lambdaphage.sh``.
@@ -109,12 +137,12 @@ For Docker:
     # execute bwa
     docker run --rm -it rnakato/mapping bwa
 
-For Singularity:
+For Apptainer:
 
     # build image
-    singularity build -F rnakato_mapping.sif docker://rnakato/mapping
+    apptainer build -F rnakato_mapping.sif docker://rnakato/mapping
     # execute bwa
-    singularity exec rnakato_mapping.sif bwa
+    apptainer exec rnakato_mapping.sif bwa
 
 ## Build image from Dockerfile
 
